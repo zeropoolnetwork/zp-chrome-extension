@@ -40,7 +40,8 @@
             "dev": {
               "customWebpackConfig": {
                 "path": "./custom-webpack-dev.config.js"
-              }
+              },
+              "sourceMap": false
             },
             "production": {
               "fileReplacements": [

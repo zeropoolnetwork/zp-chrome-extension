@@ -8,6 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'zp-chrome-extension';
   constructor() {
+    debugger
+  }
+
+  sayHi() {
     console.log('Hi');
     debugger
   }

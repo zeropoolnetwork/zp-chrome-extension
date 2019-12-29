@@ -8,4 +8,5 @@
 //   }, { url: [{ urlMatches: 'google.com' }] });
 // });
 
-console.log('Background has started 1!');
+
+console.log('Background has started 12!');
