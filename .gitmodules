@@ -1,0 +1,3 @@
+[submodule "txcircuit"]
+	path = txcircuit
+	url = https://github.com/zeropoolnetwork/txcircuit
