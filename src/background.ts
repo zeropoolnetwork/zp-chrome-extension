@@ -1,4 +1,4 @@
-``// chrome.runtime.onInstalled.addListener(() => {
+// chrome.runtime.onInstalled.addListener(() => {
 //   console.log('Background has started');
 //
 //   chrome.webNavigation.onCompleted.addListener(() => {
@@ -9,9 +9,10 @@
 //
 // });
 
-import * as config from "./background.test.json";
+import * as config from "../txcircuit/circuitsCompiled/transaction_pk.json";
 // import * as config from "./transaction_pk.json";
 debugger
+
 console.log(config);
 // console.log(config.protocol);
 console.log('Background has started 222!');
