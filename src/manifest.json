@@ -9,6 +9,7 @@
   ],
   "background": {
     "scripts": [
+      "assets/txcircuit.js",
       "background.js",
       "runtime.js",
       "vendor.js"
@@ -18,5 +19,5 @@
     "default_popup": "index.html"
   },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
-  "note": "https://stackoverflow.com/questions/48523118/wasm-module-compile-error-in-chrome-extension"
+  "note": "CSP above with 'unsafe-eval' was added because of WASM https://stackoverflow.com/questions/48523118/wasm-module-compile-error-in-chrome-extension"
 }

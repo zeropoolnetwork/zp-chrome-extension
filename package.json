@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "extension:watch": "ng build --watch --configuration=dev",
-    "copy:assets": "npx copyfiles --flat txcircuit/circuitsCompiled/* txcircuit/browser/* ./src/assets",
+    "copy:assets": "npx gulp",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

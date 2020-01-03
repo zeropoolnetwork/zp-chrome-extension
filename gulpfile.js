@@ -1,22 +1,39 @@
 const {src, dest, parallel} = require('gulp');
+const modifyFile = require('gulp-modify-file');
+const rename = require('gulp-rename');
+
+const getFileName = (file) => file.path.replace(file._base, '').replace('/', '');
 
 function copyJson2Js() {
-
-  const modifyFile = require('gulp-modify-file');
-  const rename = require('gulp-rename');
-  console.log('Hi!');
-
   return src('./txcircuit/circuitsCompiled/*.json')
     .pipe(modifyFile((content, path, file) => {
-      const start = `var ${file} = `;
-      const end = ';';
-      return `${start}${content}${end}`
+      const fileName = getFileName(file);
+      const globalVariableName = fileName.replace('.', '_');
+      return `var ${globalVariableName} = ${content};`
     }))
-    .pipe(rename({extname: '.js'}))
+    .pipe(rename({extname: '.json.js'}))
+    .pipe(
+      dest('./src/assets')
+    );
+}
+
+function copyBin() {
+  return src('./txcircuit/circuitsCompiled/*.bin')
     .pipe(
       dest('./src/assets')
     )
 }
 
-// exports.default = parallel(copyJson2Js);
-exports.default = copyJson2Js;
+function copyJs() {
+  return src(`./txcircuit/browser/*.js`)
+    .pipe(
+      dest('./src/assets')
+    )
+}
+
+exports.default = parallel(
+  copyJson2Js,
+  copyBin,
+  copyJs,
+);
+
