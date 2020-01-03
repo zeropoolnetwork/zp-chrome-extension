@@ -1,0 +1,6 @@
+# auto generated circuits files
+transaction.json.js
+transaction_pk.bin
+transaction_pk.json.js
+transaction_vk.json.js
+txcircuit.js
