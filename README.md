@@ -1,8 +1,25 @@
 # Zeropool Chrome Extension
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
+Chrome extension that allow to make anonymous transaction using Zeropool smart contract.
 
 ## Development
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Clone repository with submodules:
+`
+git clone git@github.com:zeropoolnetwork/zp-chrome-extension.git --recurse-submodules
+`
+
+- Build circuits: `./build-txcircuits.sh`, Notes: 
+  - *`txcircuit` build doesn't work with node `v12.14.0`, build is tested with node version
+ `v11.15.0`.*
+  - Build might take time
+
+ - Build chrome extension:
+    - `npm run extension:build`
+
+ - Build & watch:
+   - `npm run extension:watch`
+   - You may use `npm start` ,in case you want to work only on UI part
+   
+
 
