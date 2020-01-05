@@ -31,9 +31,17 @@ function copyJs() {
     )
 }
 
+function copyAbi() {
+  return src(`./MiMCTree/build/contracts/*.json`)
+    .pipe(
+      dest('./src/assets/ABI')
+    )
+}
+
 exports.default = parallel(
   copyJson2Js,
   copyBin,
   copyJs,
+  copyAbi
 );
 
