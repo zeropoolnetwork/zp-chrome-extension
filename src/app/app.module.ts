@@ -9,6 +9,7 @@ import { ImportAccountComponent } from './import-account/import-account.componen
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MainComponent } from './main/main.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MainComponent } from './main/main.component';
     MatButtonModule,
     MatProgressBarModule,
     AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

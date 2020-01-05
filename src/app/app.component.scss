@@ -1,8 +1,10 @@
 .extension-box {
   background-color: white;
   border: 1px solid lightgray;
-  width: 360px;
   height: 590px;
+  overflow: hidden;
+  width: 360px;
+
   & div {
     height: 100%!important;
   }

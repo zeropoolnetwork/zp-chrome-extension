@@ -7,9 +7,9 @@ import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
-  {path: 'import', component: ImportAccountComponent},
-  {path: 'create', component: CreateAccountComponent},
-  {path: 'main', component: MainComponent},
+  {path: 'import', component: ImportAccountComponent, data: {animation: 'isRight'}},
+  {path: 'create', component: CreateAccountComponent, data: {animation: 'isLeft'}},
+  {path: 'main', component: MainComponent, data: {animation: 'isRight'}},
 ];
 
 @NgModule({
