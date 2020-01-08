@@ -10,11 +10,13 @@
 }
 
 #footer {
-  padding-top: 16em;
+  box-shadow: 0 -2px 5px -5px #333;
+  margin-top: 10em;
   bottom: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  background: white;
 }
 
 .padding-top-5em {

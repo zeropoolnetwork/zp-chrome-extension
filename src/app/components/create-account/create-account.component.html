@@ -8,7 +8,7 @@
     </div>
     <div>
       <button class="button-basic"
-              mat-stroked-button
+              mat-raised-button
               matTooltip="{{copyMessage}}"
               (mouseenter)="this.copyMessage = 'Copy mnemonic'"
               (click)="copyMnemonicToClipboard()">
@@ -16,16 +16,24 @@
         COPY
       </button>
     </div>
+    <div class="padding-top-5em">
+      <mat-checkbox (click)="flip()">I have saved mnemonic to the safe place</mat-checkbox>
+    </div>
   </div>
   <div id="footer">
      <div>
-       <button class="button-basic" mat-button>
+       <button class="button-basic"
+               mat-button
+               routerLink="/">
          <mat-icon class="button-icon">keyboard_arrow_left</mat-icon>
          BACK
        </button>
      </div>
     <div>
-      <button class="button-basic" mat-button>
+      <button [disabled]="isDisabled"
+              class="button-basic"
+              mat-button
+              routerLink="/main">
         NEXT
         <mat-icon class="button-icon">keyboard_arrow_right</mat-icon>
       </button>

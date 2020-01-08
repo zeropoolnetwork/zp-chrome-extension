@@ -23,6 +23,7 @@ export class CreateAccountComponent implements OnInit {
   mnemonic: string;
   theCheckbox = false;
   copyMessage = 'Copy mnemonic';
+  isDisabled = true;
 
   constructor(private clipboard: ClipboardService) {
         this.mnemonic = HdWalletService.generateMnemonic();
@@ -51,4 +52,7 @@ export class CreateAccountComponent implements OnInit {
   ngOnInit() {
   }
 
+  flip() {
+    this.isDisabled = !this.isDisabled;
+  }
 }

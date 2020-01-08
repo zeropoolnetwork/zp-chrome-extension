@@ -12,6 +12,7 @@ import { MainComponent } from './components/main/main.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AppRoutingModule,
     MatIconModule,
     MatTooltipModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
