@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {HdWalletService} from '../../services/hd-wallet.service';
 import {ClipboardService} from '../../services/clipboard.service';
 import {MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions} from '@angular/material/tooltip';
+import {Router} from '@angular/router';
+import {SharedDataService} from '../../services/shared-data.service';
 
 /** Custom options the configure the tooltip's default show/hide delays. */
 export const toolTip: MatTooltipDefaultOptions = {
@@ -10,6 +12,7 @@ export const toolTip: MatTooltipDefaultOptions = {
   touchendHideDelay: 5000,
 
 };
+
 @Component({
   selector: 'app-create-account',
   templateUrl: './create-account.component.html',
@@ -25,8 +28,19 @@ export class CreateAccountComponent implements OnInit {
   copyMessage = 'Copy mnemonic';
   isDisabled = true;
 
-  constructor(private clipboard: ClipboardService) {
+  constructor( private clipboard: ClipboardService,
+               private router: Router,
+               private shared: SharedDataService
+  ) {
+    try {
+      if (this.shared.mnemonic.length > 0) {
+        this.mnemonic = this.shared.mnemonic;
+      } else {
         this.mnemonic = HdWalletService.generateMnemonic();
+      }
+    } catch (e) {
+        this.mnemonic = HdWalletService.generateMnemonic();
+    }
   }
 
   copyMnemonicToClipboard() {
@@ -34,19 +48,19 @@ export class CreateAccountComponent implements OnInit {
     this.copyMessage = 'Copied';
   }
 
-  onKeydown(event) {
+  onKeydown( event ) {
     if (event.key === 'Enter') {
       this.next();
     }
   }
 
   next() {
-    if (!this.theCheckbox) {
+    if (this.theCheckbox) {
       // this.alert.showError('Please, confirm that you have copied mnemonic', 'Error');
       return;
     }
-
-    // this.router.navigate(['/registration/password']);
+    this.shared.mnemonic = this.mnemonic;
+    this.router.navigate(['/password']);
   }
 
   ngOnInit() {

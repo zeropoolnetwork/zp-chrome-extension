@@ -12,8 +12,14 @@ import { MainComponent } from './components/main/main.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatCheckboxModule} from "@angular/material/checkbox";
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { PasswordComponent } from './components/password/password.component';
+import {MatInputModule} from '@angular/material/input';
+import {ReactiveFormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import {MatCardModule} from "@angular/material/card";
+import { RepeatPasswordComponent } from './components/repeat-password/repeat-password.component';
+import {SharedDataService} from "./services/shared-data.service";
 
 @NgModule({
   declarations: [
@@ -22,6 +28,8 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     ImportAccountComponent,
     CreateAccountComponent,
     MainComponent,
+    PasswordComponent,
+    RepeatPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,8 +41,12 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     MatIconModule,
     MatTooltipModule,
     MatCheckboxModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatCardModule,
   ],
-  providers: [],
+  providers: [SharedDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
