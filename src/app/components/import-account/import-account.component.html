@@ -1,0 +1,49 @@
+<div (keydown)="onKeydown($event)" class="full-width">
+  <div class="flex-vertical-stack-centered padding-top-5em">
+    <div class="padding-top-8em">
+      <h2>Enter your mnemonic</h2>
+    </div>
+    <div class="full-width">
+      <div class="padding-rl-2em">
+        <form class="textarea-form">
+          <mat-form-field class="textarea-full-width padding-tb-2em">
+            <label>
+              <textarea matInput
+                        class="no-resize"
+                        rows="3"
+                        placeholder="Mnemonic phrase"
+                        [formControl]="mnemonicFormControl"
+                        (input)="validate(mnemonicFormControl.value)">
+              </textarea>
+            </label>
+          </mat-form-field>
+          <mat-error *ngIf="isDisabled && !mnemonicFormControl.hasError('required') ">
+            Your Mnemonic is incorrect
+          </mat-error>
+          <mat-error *ngIf="mnemonicFormControl.hasError('required') && mnemonicFormControl.touched">
+            Mnemonic is <strong>required</strong>
+          </mat-error>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <div>
+      <button class="button-basic"
+              mat-button
+              routerLink="/">
+        <mat-icon class="button-icon">keyboard_arrow_left</mat-icon>
+        BACK
+      </button>
+    </div>
+    <div>
+      <button class="button-basic"
+              mat-button
+              [disabled]="isDisabled"
+              (click)="next()">
+        NEXT
+        <mat-icon class="button-icon">keyboard_arrow_right</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
