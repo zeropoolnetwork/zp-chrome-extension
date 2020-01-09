@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
-import { entropyToMnemonic, mnemonicToSeedSync } from 'bip39';
-import { hasStrongRandom, uint8ArrayToHex } from './hd-wallet.utils';
-import { EnDict } from './wordlist.en';
+import {Injectable} from '@angular/core';
+import {entropyToMnemonic, validateMnemonic} from 'bip39';
+import {hasStrongRandom, uint8ArrayToHex} from './hd-wallet.utils';
+import {EnDict} from './wordlist.en';
+
 const numWords = 12;
 
 @Injectable({
@@ -10,7 +11,8 @@ const numWords = 12;
 export class HdWalletService {
   private readonly words: string;
 
-  constructor() {}
+  constructor() {
+  }
 
   static generateMnemonic(): string {
     if (!hasStrongRandom()) {
@@ -31,5 +33,9 @@ export class HdWalletService {
     const entropy = crypto.getRandomValues(b);
 
     return entropyToMnemonic(uint8ArrayToHex(entropy), EnDict);
+  }
+
+  static validateMnemonic( phrase: string ): boolean {
+    return validateMnemonic(phrase);
   }
 }

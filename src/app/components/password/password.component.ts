@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormControl, Validators} from '@angular/forms';
-import {SharedDataService} from "../../services/shared-data.service";
+import {Location} from '@angular/common';
+import {SharedDataService} from '../../services/shared-data.service';
 
 @Component({
   selector: 'app-password',
@@ -16,7 +17,9 @@ export class PasswordComponent implements OnInit {
     Validators.minLength(8),
   ]);
 
-  constructor( private router : Router, private shared : SharedDataService ) {
+  constructor( private router: Router,
+               private shared: SharedDataService,
+               private location: Location) {
   }
 
   onKeydown( event ) {
@@ -42,5 +45,7 @@ export class PasswordComponent implements OnInit {
     this.isDisabled = !this.isDisabled;
   }
 
-
+  back() {
+    this.location.back();
+  }
 }
