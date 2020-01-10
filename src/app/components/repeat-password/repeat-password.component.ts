@@ -3,6 +3,7 @@ import {AbstractControl, FormControl, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {SharedDataService} from '../../services/shared-data.service';
 import {BehaviorSubject, Observable, of} from 'rxjs';
+import {StorageService} from '../../services/storage.service';
 
 @Component({
   selector: 'app-repeat-password',
@@ -20,7 +21,7 @@ export class RepeatPasswordComponent implements OnInit {
     // this.RepeatPasswordValidator()
   ]);
 
-  constructor( private router: Router, private shared: SharedDataService ) {
+  constructor( private router: Router, private shared: SharedDataService, private storage: StorageService) {
     try {
       if (this.shared.password.length > 0) {
         this.password.next(this.shared.password);
@@ -38,11 +39,13 @@ export class RepeatPasswordComponent implements OnInit {
     }
   }
 
-  next() {
+  async next() {
     if (this.isDisabled) {
       // this.alert.showError('Please, confirm that you have copied mnemonic', 'Error');
       return;
     }
+
+    await this.storage.createDefaultAccount(this.shared.mnemonic, this.shared.password);
 
     this.router.navigate(['/main']);
   }

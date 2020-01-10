@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
 import {MatCardModule} from "@angular/material/card";
 import { RepeatPasswordComponent } from './components/repeat-password/repeat-password.component';
 import {SharedDataService} from "./services/shared-data.service";
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {SharedDataService} from "./services/shared-data.service";
     MainComponent,
     PasswordComponent,
     RepeatPasswordComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

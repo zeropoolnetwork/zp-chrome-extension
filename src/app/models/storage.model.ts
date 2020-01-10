@@ -16,27 +16,30 @@ export interface AccountPublic {
 
 export interface PublicAccountDetails {
   name: string;
-  addresses: Addresses;
-  derivation_paths: DerivationPaths;
+  addresses: Addresses[];
+  derivation_paths: DerivationPaths[];
   availableCurrencies: Currencies;
   meta: any;
 }
 
 export interface PrivateAccountDetails {
   mnemonic: string;
-  private_keys: PrivateKeys;
+  private_keys: PrivateKeys[];
 }
 
 export interface Addresses {
-  currencyMap: Map<string, string>;
+  currency: string;
+  value: string;
 }
 
 export interface PrivateKeys {
-  currencyMap: Map<string, string>;
+  currency: string;
+  value: string;
 }
 
 export interface DerivationPaths {
-  currencyDerivationPathsMap: Map<string, string>;
+  currency: string;
+  value: string;
 }
 
 export interface Currencies {
