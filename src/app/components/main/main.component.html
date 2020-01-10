@@ -1,11 +1,14 @@
 <app-header></app-header>
 <div class="subheader fixed-width flex-row-between">
   <div></div>
-  <div class="center margin-top-small">
+  <div class="center margin-top-small"
+       matTooltip="{{copyMessage}}"
+       (mouseenter)="this.copyMessage = 'Copy address'"
+       (click)="copyMnemonicToClipboard()">
     <div class="account-text">
       {{currentName}}
     </div>
-    <div class="account-address">{{currentAddress}}</div>
+    <div class="account-address">{{currentAddressShort}}</div>
   </div>
   <div></div>
 </div>

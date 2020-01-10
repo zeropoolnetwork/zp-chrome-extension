@@ -28,12 +28,14 @@
 }
 
 .center {
+
   text-align: center;
 }
 
 .margin-top-small {
   margin-top: 0.25em;
 }
+
 .margin-top-normal {
   margin-top: 0.5em;
 }
@@ -84,4 +86,9 @@
   text-align: center;
   color: #717171;
   font-size: 12px !important;
+}
+
+.center:hover {
+  border-radius: 10px;
+  background: rgba(152, 152, 152, 0.39);
 }
