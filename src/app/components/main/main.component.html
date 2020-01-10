@@ -1,8 +1,37 @@
- <app-header></app-header>
-<div>
-  <h4>main works!</h4>
-  <h3>0 ETH / 0 zpETH</h3>
-  <button mat-stroked-button>Deposit</button>
-  <button mat-stroked-button>Withdraw</button>
-  <button mat-stroked-button>Send</button>
+<app-header></app-header>
+<div style="display: flex; flex-direction: row; justify-content: space-between; width: 360px;height:50px;">
+  <div></div>
+  <div style="text-align: center; margin-top: 0.25em">
+    <div style="
+         font-weight: bold;
+         white-space: nowrap;
+         color: #434343;
+         font-size: 15px !important;
+         margin-top: 0.3em;">
+      {{currentName}}
+    </div>
+    <div style="font-size: 12px !important; color: #5c5c5c">{{currentAddress}}</div>
+  </div>
+  <div></div>
 </div>
+<hr class="unusualHr">
+<div style="display: flex; flex-direction: column; justify-content: center; align-content: center; width: 100%; align-items: center; margin-top: 2em; margin-bottom: 4em">
+  <div style="color: #434343;">
+    <h3>0 zpETH</h3>
+  </div>
+  <div style="margin-top: 2em">
+    <button mat-raised-button class="main-btn">Deposit</button>
+    <button mat-raised-button class="main-btn">Withdraw</button>
+    <button mat-raised-button class="main-btn">Send</button>
+  </div>
+</div>
+<div>
+  <h4 style="text-align: center; color: #434343;
+         font-size: 15px !important;">Transactions History</h4>
+</div>
+<hr class="unusualHr">
+<div>
+  <h4 style="text-align: center; color: #707070;
+         font-size: 13px !important;">Not implemented yet</h4>
+</div>
+
