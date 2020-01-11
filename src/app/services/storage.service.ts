@@ -88,8 +88,10 @@ export class StorageService {
       value: this.zrp.getPrivateKey(
         mnemonic,
         derivation_path.value
-      ).toString()
+      ).k.toString()
     };
+
+    console.log(private_key);
 
     // tslint:disable-next-line:variable-name
     const private_keys: PrivateKeys[] = [];
