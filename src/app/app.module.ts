@@ -21,6 +21,10 @@ import {MatCardModule} from "@angular/material/card";
 import { RepeatPasswordComponent } from './components/repeat-password/repeat-password.component';
 import {SharedDataService} from "./services/shared-data.service";
 import { HeaderComponent } from './components/header/header.component';
+import { MainMenuComponent } from './components/main-menu/main-menu.component';
+import { ShowMnemonicComponent } from './components/show-mnemonic/show-mnemonic.component';
+import { ValidationComponent } from './validation/validation.component';
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -32,6 +36,9 @@ import { HeaderComponent } from './components/header/header.component';
     PasswordComponent,
     RepeatPasswordComponent,
     HeaderComponent,
+    MainMenuComponent,
+    ShowMnemonicComponent,
+    ValidationComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +54,7 @@ import { HeaderComponent } from './components/header/header.component';
     ReactiveFormsModule,
     FormsModule,
     MatCardModule,
+    MatListModule,
   ],
   providers: [SharedDataService],
   bootstrap: [AppComponent]
