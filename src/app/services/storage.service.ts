@@ -23,6 +23,10 @@ interface AllAccounts {
   priv: AccountsPrivate;
   pub: AccountsPublic;
 }
+interface Account {
+  priv: AccountPrivate;
+  pub: AccountPublic;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -147,6 +151,13 @@ export class StorageService {
     return {pub, priv};
   }
 
+  async removeAccount() {
+    await this.cleanStorageRaw('current_priv');
+    await this.cleanStorageRaw('current_pub');
+    await this.cleanStorageRaw('pub');
+    await this.cleanStorageRaw('priv');
+  }
+
   addAccount( mnemonic, currency, newCurrency?, derivationPath?, meta? ) {
     if (newCurrency && derivationPath) {
 
@@ -165,6 +176,19 @@ export class StorageService {
     await this.saveToStorageRaw('private', encryptedData);
     await this.saveToStorageRaw('public', publicData);
   }
+
+  private async setToStorageCurrentAccount( rawData: Account, password: string ) {
+    const privateData = JSON.stringify(rawData.priv);
+    const publicData = JSON.stringify(rawData.pub);
+
+    // todo: check for errors
+    const encryptedData = await this.crypto.encrypt(privateData, password);
+
+    await this.saveToStorageRaw('current_private', encryptedData);
+    await this.saveToStorageRaw('current_public', publicData);
+  }
+
+
 
   private saveToStorageRaw( key: string, value: string ): Promise<void> {
     return new Promise<void>(( resolve ) => {
@@ -189,6 +213,19 @@ export class StorageService {
       } else {
         const result = localStorage.getItem(key);
         resolve(result);
+      }
+    });
+  }
+
+  private cleanStorageRaw(key: string): Promise<void>  {
+    return new Promise<void>(( resolve ) => {
+      if (environment.production) {
+        chrome.storage.local.remove(key);
+      } else {
+        localStorage.removeItem(key);
+        // Fire our fake localstorage listener
+        this.lsSetter$.next(key);
+        resolve();
       }
     });
   }

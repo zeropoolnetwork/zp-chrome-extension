@@ -28,7 +28,6 @@ export class PasswordComponent implements OnInit {
                private storage: StorageService) {
 
     this.operation = this.activatedRoute.snapshot.params.operation;
-    console.log(this.shared.mnemonic)
     if (this.operation === 'registration' && !this.shared.mnemonic) {
       this.router.navigate(['/']);
     }
