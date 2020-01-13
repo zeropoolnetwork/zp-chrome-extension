@@ -1,0 +1,58 @@
+.flex-row-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.fixed-height-50 {
+  height: 50px;
+}
+
+.fixed-width {
+  padding: 0 !important;
+  width: 360px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  background: #292929
+}
+
+.align-element-center {
+  align-self: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.navbar-item-left {
+  margin-left: 1em;
+  color: white;
+  margin-top: 0.5em
+}
+
+.mat-icon {
+  padding-top: 0.2em;
+  font-size: 18px !important;
+}
+
+.button-small-fab {
+  margin-bottom: 0.8em;
+  background: none;
+  box-shadow: none;
+}
+
+.button-small-fab-icon {
+  margin-top: 0.7em;
+  margin-bottom: 0.8em;
+  background: none;
+  box-shadow: none;
+}
+
+
+.icon-picture {
+  width: 20px;
+  height: 20px;
+  border-radius: 1000px;
+  padding-top: 0.2em;
+}

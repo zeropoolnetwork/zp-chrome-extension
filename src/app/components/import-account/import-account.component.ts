@@ -35,7 +35,7 @@ export class ImportAccountComponent implements OnInit {
       return;
     }
     this.shared.mnemonic = this.mnemonicFormControl.value;
-    this.router.navigate(['/password']);
+    this.router.navigate(['/password/registration']);
   }
 
   validate(phrase: string) {

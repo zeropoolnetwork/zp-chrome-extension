@@ -1,7 +1,32 @@
+<app-header></app-header>
+<div class="subheader fixed-width flex-row-between">
+  <div></div>
+  <div class="center margin-top-small"
+       matTooltip="{{copyMessage}}"
+       (mouseenter)="this.copyMessage = 'Copy address'"
+       (click)="copyMnemonicToClipboard()">
+    <div class="account-text">
+      {{currentName}}
+    </div>
+    <div class="account-address">{{currentAddressShort}}</div>
+  </div>
+  <div></div>
+</div>
+<hr class="unusualHr">
+<div class="flex-row-center margins">
+  <div class="grey-text">
+    <h3>0 zpETH</h3>
+  </div>
+  <div class="margin-t-2">
+    <button mat-raised-button class="main-btn">Deposit</button>
+    <button mat-raised-button class="main-btn">Withdraw</button>
+    <button mat-raised-button class="main-btn">Send</button>
+  </div>
+</div>
 <div>
-  <h4>main works!</h4>
-  <h3>0 ETH / 0 zpETH</h3>
-  <button mat-stroked-button>Deposit</button>
-  <button mat-stroked-button>Withdraw</button>
-  <button mat-stroked-button>Send</button>
+  <h4 class="text-headers">Transactions History</h4>
+  <hr class="unusualHr">
+</div>
+<div>
+  <h4 class="text-headers-small">Not implemented yet</h4>
 </div>

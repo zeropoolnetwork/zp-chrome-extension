@@ -1,0 +1,21 @@
+<div class="flex-vertical-stack-centered">
+  <div><p>{{mnemonic}}</p></div>
+  <div>
+    <button class="button-basic"
+            mat-raised-button
+            matTooltip="{{copyMessage}}"
+            (mouseenter)="this.copyMessage = 'Copy mnemonic'"
+            (click)="copyMnemonicToClipboard()">
+      <mat-icon>file_copy</mat-icon>
+      COPY
+    </button>
+  </div>
+  <div class="padding-top-2em">
+    <button class="button-basic"
+            mat-button
+            routerLink="/main">
+      CONTINUE
+      <mat-icon class="button-icon">keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
+</div>

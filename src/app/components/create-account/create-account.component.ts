@@ -60,7 +60,7 @@ export class CreateAccountComponent implements OnInit {
       return;
     }
     this.shared.mnemonic = this.mnemonic;
-    this.router.navigate(['/password']);
+    this.router.navigate(['/password/registration']);
   }
 
   ngOnInit() {

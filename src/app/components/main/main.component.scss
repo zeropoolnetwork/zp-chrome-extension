@@ -1,0 +1,94 @@
+.unusualHr {
+  margin-top: 0.1em;
+  border: 0.25px solid rgb(132, 142, 156);;
+  border-radius: 15px;
+  margin-right: 2em;
+  margin-left: 2em
+}
+
+.main-btn {
+  width: 90px;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+}
+
+.flex-row-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.fixed-width {
+  width: 360px;
+}
+
+.subheader {
+  height: 50px;
+  margin-top: -8em
+}
+
+.center {
+
+  text-align: center;
+}
+
+.margin-top-small {
+  margin-top: 0.25em;
+}
+
+.margin-top-normal {
+  margin-top: 0.5em;
+}
+
+.account-text {
+  padding-top: 0.6em;
+  font-weight: bold;
+  white-space: nowrap;
+  color: #434343;
+  font-size: 15px !important;
+}
+
+.account-address {
+  font-size: 12px !important;
+  color: #5c5c5c
+}
+
+.flex-row-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.margins {
+  padding-top: 2em;
+  padding-bottom: 4em
+}
+
+.grey-text {
+  color: #434343;
+}
+
+.margin-t-2 {
+  margin-top: 2em
+}
+
+.text-headers {
+  text-align: center;
+  color: #434343;
+  font-size: 15px !important;
+}
+
+.text-headers-small {
+  margin-top: 0.1em;
+  text-align: center;
+  color: #717171;
+  font-size: 12px !important;
+}
+
+.center:hover {
+  border-radius: 10px;
+  background: rgba(152, 152, 152, 0.39);
+}
