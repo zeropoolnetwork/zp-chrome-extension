@@ -25,6 +25,7 @@ import {MainMenuComponent} from './components/main-menu/main-menu.component';
 import {ShowMnemonicComponent} from './components/show-mnemonic/show-mnemonic.component';
 import {DeleteAccountApproveComponent} from './components/delete-account-approve/delete-account-approve.component';
 import {MatListModule} from '@angular/material/list';
+import { UnlockComponent } from './components/unlock/unlock.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import {MatListModule} from '@angular/material/list';
     MainMenuComponent,
     ShowMnemonicComponent,
     DeleteAccountApproveComponent,
+    UnlockComponent,
   ],
   imports: [
     BrowserModule,
