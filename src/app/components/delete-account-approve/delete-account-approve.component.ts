@@ -10,7 +10,7 @@ import {Location} from '@angular/common';
 })
 export class DeleteAccountApproveComponent implements OnInit {
 
-  constructor( private storage : StorageService, private router : Router, private location : Location ) {
+  constructor( private storage: StorageService, private router: Router, private location: Location ) {
   }
 
   ngOnInit() {

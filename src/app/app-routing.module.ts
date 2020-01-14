@@ -11,6 +11,7 @@ import {ShowMnemonicComponent} from './components/show-mnemonic/show-mnemonic.co
 import {DeleteAccountApproveComponent} from './components/delete-account-approve/delete-account-approve.component';
 import {UnlockComponent} from './components/unlock/unlock.component';
 import {AuthGuardService as AuthGuard} from './services/auth-guard.service';
+import {DepositComponent} from './components/deposit/deposit.component';
 
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'menu', component: MainMenuComponent, canActivate: [AuthGuard]},
   {path: 'mnemonic', component: ShowMnemonicComponent, canActivate: [AuthGuard]},
   {path: 'delete', component: DeleteAccountApproveComponent, canActivate: [AuthGuard]},
+  {path: 'deposit', component: DepositComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

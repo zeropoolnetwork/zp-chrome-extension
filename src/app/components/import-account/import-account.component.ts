@@ -39,7 +39,7 @@ export class ImportAccountComponent implements OnInit {
   }
 
   validate(phrase: string) {
-    console.log(HdWalletService.validateMnemonic(phrase))
+    console.log(HdWalletService.validateMnemonic(phrase));
     this.isDisabled = !HdWalletService.validateMnemonic(phrase);
   }
 

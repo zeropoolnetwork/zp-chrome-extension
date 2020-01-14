@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
-import {SharedDataService} from "./shared-data.service";
-import {Router} from "@angular/router";
+import {SharedDataService} from './shared-data.service';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'

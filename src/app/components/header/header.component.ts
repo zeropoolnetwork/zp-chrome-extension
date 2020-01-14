@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {StorageService} from "../../services/storage.service";
-import {from} from "rxjs";
-import {map, take} from "rxjs/operators";
+import {StorageService} from '../../services/storage.service';
+import {from} from 'rxjs';
+import {map, take} from 'rxjs/operators';
 
 export function toShortAddress(address: string): string {
   return address.substring(0, 8) + '...' + address.substring(address.length - 8, address.length);
