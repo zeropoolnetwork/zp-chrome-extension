@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SharedDataService} from '../../services/shared-data.service';
 import {ClipboardService} from '../../services/clipboard.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-show-mnemonic',
