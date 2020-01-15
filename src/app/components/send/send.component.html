@@ -1,0 +1,53 @@
+<app-header></app-header>
+<div class="flex-vertical-stack-centered">
+  <button style="margin-top: -0em" class="button-basic"
+          mat-button
+          (click)="back()">
+    <mat-icon class="button-icon">keyboard_arrow_left</mat-icon>
+    BACK
+  </button>
+  <div class="padding-top-3em">
+    <h2>Send anonymous transaction</h2>
+  </div>
+  <div class="full-width">
+    <div class="padding-rl-2em">
+      <form [formGroup]="sendForm">
+        <mat-form-field class="password-full-width">
+          <label>
+            <input matInput
+                   placeholder="Address"
+                   type="text"
+                   formControlName="address">
+          </label>
+          <mat-error *ngIf="address.hasError('required')">
+            Address is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="password-full-width">
+          <label>
+            <input matInput
+                   placeholder="Amount"
+                   type="number"
+                   formControlName="amount">
+          </label>
+          <mat-error *ngIf="amount.hasError('required')">
+            Amount is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </form>
+    </div>
+  </div>
+  <div class="padding-top-3em">
+    <button *ngIf="amount.value"
+            class="button-basic"
+            mat-raised-button
+            (click)="send()">
+      Send {{(amount.value + ' ZRP') }}
+    </button>
+    <button *ngIf="!amount.value"
+            class="button-basic"
+            mat-raised-button>
+      Send
+    </button>
+  </div>
+</div>

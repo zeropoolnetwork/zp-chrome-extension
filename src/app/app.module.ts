@@ -27,6 +27,9 @@ import {DeleteAccountApproveComponent} from './components/delete-account-approve
 import {MatListModule} from '@angular/material/list';
 import { UnlockComponent } from './components/unlock/unlock.component';
 import { DepositComponent } from './components/deposit/deposit.component';
+import { SendComponent } from './components/send/send.component';
+import { SendConfirmComponent } from './components/send/send-confirm/send-confirm.component';
+import { WithdrawComponent } from './components/withdraw/withdraw.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { DepositComponent } from './components/deposit/deposit.component';
     DeleteAccountApproveComponent,
     UnlockComponent,
     DepositComponent,
+    SendComponent,
+    SendConfirmComponent,
+    WithdrawComponent,
   ],
   imports: [
     BrowserModule,
