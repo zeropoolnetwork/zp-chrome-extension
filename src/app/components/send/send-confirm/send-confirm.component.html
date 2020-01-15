@@ -1,0 +1,22 @@
+<app-header></app-header>
+<div class="flex-vertical-stack-centered full-width">
+  <button style="margin-top: -3.7em" class="button-basic"
+          mat-button
+          (click)="back()">
+    <mat-icon class="button-icon">keyboard_arrow_left</mat-icon>
+    BACK
+  </button>
+  <div class="padding-top-3em" style="text-align: left">
+    <h4>Send {{ sum+  ' ZRP'}}</h4>
+    <h4>Commission {{'0 ZRP'}}</h4>
+    <h4>Total {{ sum + ' ZRP'}}</h4>
+  </div>
+  <div class="padding-top-3em">
+    <button class="button-basic"
+            mat-raised-button
+            routerLink="/main">
+      Confirm and send
+    </button>
+
+  </div>
+</div>
