@@ -4,6 +4,9 @@ node_js:
 os: osx
 sudo: false
 
+git:
+  submodules: true
+
 cache:
   directories:
   - node_modules
@@ -16,4 +19,3 @@ script:
 - npm i
 - ./build-txcircuits.sh
 - npm run extension:build
-- 
