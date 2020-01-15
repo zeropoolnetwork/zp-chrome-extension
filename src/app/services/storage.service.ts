@@ -107,7 +107,7 @@ export class StorageService {
 
     // tslint:disable-next-line:variable-name
     const derivation_paths: DerivationPaths[] = [];
-    addresses.push(derivation_path);
+    derivation_paths.push(derivation_path);
 
     // tslint:disable-next-line:variable-name
     const private_details: PrivateAccountDetails = {
