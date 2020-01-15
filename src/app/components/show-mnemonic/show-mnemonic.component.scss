@@ -1,8 +1,14 @@
-.flex-vertical-stack-centered {
-  display: flex;
+.wrapper {
+  width: 360px;
+  height: 590px;
   flex-direction: column;
+  box-sizing: border-box;
+  display: flex;
+  place-content: center;
   align-items: center;
-  text-align: center;
+}
+
+.flex-vertical-stack-centered {
 }
 
 .button-basic {
