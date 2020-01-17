@@ -1,6 +1,6 @@
 # Zeropool Chrome Extension
 [![Build Status](https://travis-ci.org/zeropoolnetwork/zp-chrome-extension.svg?branch=master)](https://travis-ci.org/zeropoolnetwork/zp-chrome-extension)
-
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/916cf56aeb004d929ed0e6e7cd45f34f)](https://www.codacy.com/gh/zeropoolnetwork/zp-chrome-extension?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=zeropoolnetwork/zp-chrome-extension&amp;utm_campaign=Badge_Grade)
 Chrome extension that allow to make anonymous transaction using Zeropool smart contract.
 
 ## Development
