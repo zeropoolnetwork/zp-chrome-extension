@@ -2,10 +2,12 @@ export interface AccountsPublic {
   accounts: AccountPublic[];
 }
 
+// TODO: it seems nest field is no needed
 export interface AccountsPrivate {
   accounts: AccountPrivate[];
 }
 
+// TODO: it seems nest field is no needed
 export interface AccountPrivate {
   private_details: PrivateAccountDetails;
 }

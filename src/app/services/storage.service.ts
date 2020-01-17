@@ -23,6 +23,7 @@ interface AllAccounts {
   priv: AccountsPrivate;
   pub: AccountsPublic;
 }
+
 interface Account {
   priv: AccountPrivate;
   pub: AccountPublic;
@@ -35,42 +36,50 @@ export class StorageService {
 
   private lsSetter$: Subject<string> = new Subject<string>();
 
-  constructor( private zrp: ZeropoolCryptoService, private crypto: EncryptionNativeService ) {
+  constructor(private zrp: ZeropoolCryptoService, private crypto: EncryptionNativeService) {
   }
 
-  public async createDefaultAccount( mnemonic: string, password: string ) {
+  public async createDefaultAccount(mnemonic: string, password: string) {
     await this.setToStorageAll(this.initAllStorageData(mnemonic), password);
   }
 
+  // TODO: In case storage is empty this function returns `null`
   public async getAccountPublicData(): Promise<AccountsPublic> {
-    let data: AccountsPublic;
     try {
-      data = JSON.parse(await this.getFromStorageRaw('public'));
+      // TODO: HERE is a problem
+      return JSON.parse(await this.getFromStorageRaw('public'));
     } catch (e) {
-      data = {accounts: []};
+      // TODO: move default object to constant
+      return {
+        accounts: []
+      };
     }
-    return Promise.resolve(data);
   }
 
-  public async getAccountPrivateData( password: string ): Promise<AccountsPrivate> {
+  public async getAccountPrivateData(password: string): Promise<AccountsPrivate> {
     const data = await this.getFromStorageRaw('private');
 
     let result: AccountsPrivate;
     try {
+      // TODO: HERE might be a problem, but not for sure
       const rawResult = await this.crypto.decrypt(data, password);
       result = JSON.parse(rawResult);
     } catch (e) {
-      result = {accounts: []};
+      // TODO: move default object to constant
+      result = {
+        accounts: []
+      };
     }
     return result;
   }
 
-  private initAllStorageData( mnemonic: string ): AllAccounts {
+  private initAllStorageData(mnemonic: string): AllAccounts {
+
     const availableCurrencies: Currencies = {
       currenciesList: ['zrp']
     };
 
-    // tslint:disable-next-line:variable-name
+
     const derivation_path: DerivationPaths = {
       currency: availableCurrencies.currenciesList[0],
       value: zrpPath
@@ -86,7 +95,6 @@ export class StorageService {
       )
     };
 
-    // tslint:disable-next-line:variable-name
     const private_key: PrivateKeys = {
       currency: availableCurrencies.currenciesList[0],
       value: this.zrp.getPrivateKey(
@@ -95,27 +103,23 @@ export class StorageService {
       ).k.toString()
     };
 
-    console.log(private_key);
+    // console.log(private_key);
 
-    // tslint:disable-next-line:variable-name
     const private_keys: PrivateKeys[] = [];
     private_keys.push(private_key);
 
-    // tslint:disable-next-line:variable-name
     const addresses: Addresses[] = [];
     addresses.push(address);
 
-    // tslint:disable-next-line:variable-name
+
     const derivation_paths: DerivationPaths[] = [];
     derivation_paths.push(derivation_path);
 
-    // tslint:disable-next-line:variable-name
     const private_details: PrivateAccountDetails = {
       mnemonic,
       private_keys
     };
 
-    // tslint:disable-next-line:variable-name
     const public_details: PublicAccountDetails = {
       name: default_name,
       addresses,
@@ -128,16 +132,13 @@ export class StorageService {
       private_details
     };
 
-    // tslint:disable-next-line:variable-name
     const account_pub: AccountPublic = {
       public_details
     };
 
-    // tslint:disable-next-line:variable-name
     const accounts_pub: AccountPublic[] = [];
     accounts_pub.push(account_pub);
 
-    // tslint:disable-next-line:variable-name
     const accounts_priv: AccountPrivate[] = [];
     accounts_priv.push(account);
 
@@ -148,7 +149,11 @@ export class StorageService {
     const priv: AccountsPrivate = {
       accounts: accounts_priv
     };
-    return {pub, priv};
+
+    return {
+      pub,
+      priv
+    };
   }
 
   async removeAccount() {
@@ -158,7 +163,7 @@ export class StorageService {
     await this.cleanStorageRaw('private');
   }
 
-  addAccount( mnemonic, currency, newCurrency?, derivationPath?, meta? ) {
+  addAccount(mnemonic, currency, newCurrency?, derivationPath?, meta?) {
     if (newCurrency && derivationPath) {
 
     } else {
@@ -166,18 +171,19 @@ export class StorageService {
     }
   }
 
-  private async setToStorageAll( rawData: AllAccounts, password: string ) {
+  private async setToStorageAll(rawData: AllAccounts, password: string) {
     const privateData = JSON.stringify(rawData.priv);
     const publicData = JSON.stringify(rawData.pub);
 
     // todo: check for errors
+    console.log(privateData);
     const encryptedData = await this.crypto.encrypt(privateData, password);
 
     await this.saveToStorageRaw('private', encryptedData);
     await this.saveToStorageRaw('public', publicData);
   }
 
-  private async setToStorageCurrentAccount( rawData: Account, password: string ) {
+  private async setToStorageCurrentAccount(rawData: Account, password: string) {
     const privateData = JSON.stringify(rawData.priv);
     const publicData = JSON.stringify(rawData.pub);
 
@@ -189,9 +195,8 @@ export class StorageService {
   }
 
 
-
-  private saveToStorageRaw( key: string, value: string ): Promise<void> {
-    return new Promise<void>(( resolve ) => {
+  private saveToStorageRaw(key: string, value: string): Promise<void> {
+    return new Promise<void>((resolve) => {
       if (environment.production) {
         const cmd = {
           [key]: value
@@ -206,10 +211,10 @@ export class StorageService {
     });
   }
 
-  private getFromStorageRaw( key: string ): Promise<string> {
-    return new Promise<any>(( resolve ) => {
+  private getFromStorageRaw(key: string): Promise<string> {
+    return new Promise<any>((resolve) => {
       if (environment.production) {
-        chrome.storage.local.get(key, ( result ) => resolve(result[key]));
+        chrome.storage.local.get(key, (result) => resolve(result[key]));
       } else {
         const result = localStorage.getItem(key);
         resolve(result);
@@ -217,8 +222,8 @@ export class StorageService {
     });
   }
 
-  private cleanStorageRaw(key: string): Promise<void>  {
-    return new Promise<void>(( resolve ) => {
+  private cleanStorageRaw(key: string): Promise<void> {
+    return new Promise<void>((resolve) => {
       if (environment.production) {
         chrome.storage.local.remove(key);
       } else {
