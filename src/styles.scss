@@ -35,7 +35,7 @@ $theme: $app-theme;
 //@include mat-bottom-sheet-theme($theme);
 @include mat-button-theme($theme);
 //@include mat-button-toggle-theme($theme);
-//@include mat-card-theme($theme);
+@include mat-card-theme($theme);
 
 //@include mat-checkbox-theme($theme);
 @mixin my-mat-checkbox-theme($theme) {
@@ -177,8 +177,8 @@ $theme: $app-theme;
 //@include mat-stepper-theme($theme);
 //@include mat-sort-theme($theme);
 //@include mat-tabs-theme($theme);
-//@include mat-toolbar-theme($theme);
-//@include mat-tooltip-theme($theme);
+@include mat-toolbar-theme($theme);
+@include mat-tooltip-theme($theme);
 //@include mat-tree-theme($theme);
 //@include mat-snack-bar-theme($theme);
 
