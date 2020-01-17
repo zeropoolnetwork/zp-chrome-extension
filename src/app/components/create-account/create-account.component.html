@@ -20,19 +20,19 @@
       <mat-checkbox (click)="flip()">I have saved mnemonic to the safe place</mat-checkbox>
     </div>
   </div>
-  <div id="footer">
-     <div>
-       <button class="button-basic"
-               mat-button
-               routerLink="/">
-         <mat-icon class="button-icon">keyboard_arrow_left</mat-icon>
-         BACK
-       </button>
-     </div>
+  <div class="flex-inline">
+    <div>
+      <button class="button-basic"
+              mat-raised-button
+              routerLink="/">
+        <mat-icon class="button-icon">keyboard_arrow_left</mat-icon>
+        BACK
+      </button>
+    </div>
     <div>
       <button [disabled]="isDisabled"
               class="button-basic"
-              mat-button
+              mat-raised-button
               (click)="next()">
         NEXT
         <mat-icon class="button-icon">keyboard_arrow_right</mat-icon>

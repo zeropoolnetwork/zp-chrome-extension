@@ -22,3 +22,11 @@
 .danger {
   border: 1px solid red;
 }
+
+.flex-inline {
+  padding-top: 2em;
+  align-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
