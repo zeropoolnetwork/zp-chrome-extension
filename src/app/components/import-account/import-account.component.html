@@ -6,23 +6,22 @@
     <div class="full-width">
       <div class="padding-rl-2em">
         <form class="textarea-form">
-          <mat-form-field class="textarea-full-width padding-tb-2em">
-            <label>
-              <textarea matInput
-                        class="no-resize"
-                        rows="3"
-                        placeholder="Mnemonic phrase"
-                        [formControl]="mnemonicFormControl"
-                        (input)="validate(mnemonicFormControl.value)">
-              </textarea>
-            </label>
+          <mat-form-field appearance="outline">
+            <mat-label>Mnemonic</mat-label>
+            <textarea matInput
+                      class="no-resize"
+                      rows="3"
+                      [formControl]="mnemonicFormControl"
+                      (input)="validate(mnemonicFormControl.value)">
+            </textarea>
+            <mat-error *ngIf="isDisabled && !mnemonicFormControl.hasError('required') ">
+              Your Mnemonic is incorrect
+            </mat-error>
+            <mat-error *ngIf="mnemonicFormControl.hasError('required') && mnemonicFormControl.touched">
+              Mnemonic is <strong>required</strong>
+            </mat-error>
           </mat-form-field>
-          <mat-error *ngIf="isDisabled && !mnemonicFormControl.hasError('required') ">
-            Your Mnemonic is incorrect
-          </mat-error>
-          <mat-error *ngIf="mnemonicFormControl.hasError('required') && mnemonicFormControl.touched">
-            Mnemonic is <strong>required</strong>
-          </mat-error>
+
         </form>
       </div>
     </div>
