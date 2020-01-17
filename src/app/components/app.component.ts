@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {animateFunc} from '../route-animations';
+import {SharedDataService} from '../services/shared-data.service';
+import {StorageService} from '../services/storage.service';
 
 @Component({
   selector: 'app-root',
@@ -13,11 +15,15 @@ import {animateFunc} from '../route-animations';
 export class AppComponent {
   title = 'zp-chrome-extension';
 
-  constructor() {
-
+  constructor( public shared: SharedDataService, private storage: StorageService ) {
+    this.getCurrentMode();
   }
 
-  prepareRoute(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  async getCurrentMode() {
+    this.shared.mode = (await this.storage.getAccountPublicData()).accounts[0].public_details.meta.mode;
+  }
+
+  prepareRoute( outlet: RouterOutlet ) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }
 }

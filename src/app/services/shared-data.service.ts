@@ -8,6 +8,7 @@ export class SharedDataService {
   password: string;
   sum: string;
   address: string;
+  mode = 'zeropool';
 
   constructor() { }
 }

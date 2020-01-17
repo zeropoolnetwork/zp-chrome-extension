@@ -1,8 +1,8 @@
-<div class="navbar flex-row-between fixed-height-55 fixed-width">
+<div class="navbar flex-row-between fixed-height-55 fixed-width"  [ngClass]="{'white': shared.mode === 'ethereum', 'grey': shared.mode === 'zeropool'}">
   <div class="align-element-center navbar-item-left">
     <button mat-mini-fab class="button-small-fab"
             routerLink="/menu">
-      <mat-icon>menu</mat-icon>
+      <mat-icon  [ngClass]="{'text-black': shared.mode === 'ethereum', 'text-white': shared.mode === 'zeropool'}">menu</mat-icon>
     </button>
   </div>
   <div>
@@ -10,7 +10,9 @@
   <div style="padding-right: 1em; justify-content: center; align-items: center; align-self: center">
     <button mat-mini-fab class="button-small-fab-icon"
             matTooltip="Net implemented yet">
-      <img src="../../../assets/img/zp.png" class="icon-picture" draggable="false"
+      <img ng *ngIf="shared.mode  === 'zeropool'" src="../../../assets/img/zp.png" class="icon-picture" draggable="false"
+           alt="">
+      <img ng *ngIf="shared.mode  === 'ethereum'" src="../../../assets/img/eth.png" class="icon-picture" draggable="false"
            alt="">
     </button>
   </div>
