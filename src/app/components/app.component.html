@@ -1,6 +1,6 @@
-<div class="extension-box">
-  <!--  <mat-progress-bar mode="indeterminate"></mat-progress-bar>-->
-  <div fxLayout="column" fxLayoutAlign="center center">
-    <router-outlet></router-outlet>
+<div [@routeAnimations]="prepareRoute(outlet)" class="extension-box" [ngClass]="{'extension-box-ether': shared.mode === 'ethereum', 'extension-box': shared.mode === 'zeropool'}">
+<!--  <mat-progress-bar mode="indeterminate"></mat-progress-bar>-->
+  <div class="wrapper" fxLayout="column" fxLayoutAlign="center center">
+    <router-outlet #outlet="outlet"></router-outlet>
   </div>
 </div>

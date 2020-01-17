@@ -1,11 +1,10 @@
-.text-subhead {
-  text-align: center;
-  padding: 1em 1em
-}
-
 .wrapper {
   width: 360px;
-  height: 590px;
+  margin-top: -12.8em;
+}
+
+.full-width {
+  width: 360px !important;
   padding: 0 !important
 }
 
@@ -15,8 +14,8 @@
 }
 
 
-.padding-top-8em {
-  padding-top: 8em;
+.padding-top-3em {
+  padding-top: 3em;
 }
 
 .flex-vertical-stack-centered {
@@ -25,8 +24,9 @@
   align-items: center;
 }
 
-.no-resize {
-  resize: none;
+.padding-rl-1em {
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .padding-rl-2em {
@@ -71,11 +71,13 @@ select:-webkit-autofill:focus {
   margin-top: -0.1em;
 }
 
-.textarea-form {
-  height: 130px;
+.password-form {
+  min-width: 150px;
+  max-width: 500px;
   width: 100%;
+  text-align: center;
 }
 
-.textarea-full-width {
+.password-full-width {
   width: 100%;
 }

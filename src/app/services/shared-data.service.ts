@@ -6,6 +6,9 @@ import { Injectable } from '@angular/core';
 export class SharedDataService {
   mnemonic: string;
   password: string;
+  sum: string;
+  address: string;
+  mode = 'zeropool';
 
   constructor() { }
 }

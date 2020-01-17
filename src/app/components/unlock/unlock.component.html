@@ -7,22 +7,27 @@
       </div>
       <div class="full-width">
         <div class="padding-rl-2em">
+          <mat-card>
           <form class="password-form">
-            <mat-form-field class="password-full-width padding-tb-2em">
-              <label>
-                <input matInput
-                       placeholder="Password"
-                       type="password"
-                       [formControl]="passwordFormControl">
-              </label>
-              <mat-error *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')">
-                Your password must be at least 8 characters long
-              </mat-error>
-              <mat-error *ngIf="passwordFormControl.hasError('required')">
-                Password is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
+
+              <mat-form-field class="password-full-width padding-tb-2em">
+                <label>
+                  <input matInput
+                         placeholder="Password"
+                         type="password"
+                         [formControl]="passwordFormControl">
+                </label>
+                <mat-error
+                  *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')">
+                  Your password must be at least 8 characters long
+                </mat-error>
+                <mat-error *ngIf="passwordFormControl.hasError('required')">
+                  Password is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+
           </form>
+          </mat-card>
         </div>
       </div>
       <div class="margin-t-2">
