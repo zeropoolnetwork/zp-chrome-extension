@@ -1,3 +1,7 @@
+#!/bin/sh
+set -e
+set -o pipefail
+
 cd ./txcircuit
 npm i
 ./setup.sh
