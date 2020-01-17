@@ -1,4 +1,5 @@
 # Zeropool Chrome Extension
+[![Build Status](https://travis-ci.org/zeropoolnetwork/zp-chrome-extension.svg?branch=master)](https://travis-ci.org/zeropoolnetwork/zp-chrome-extension)
 
 Chrome extension that allow to make anonymous transaction using Zeropool smart contract.
 
