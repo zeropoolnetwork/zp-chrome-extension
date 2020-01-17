@@ -9,7 +9,7 @@
   </div>
   <div style="padding-right: 1em; justify-content: center; align-items: center; align-self: center">
     <button mat-mini-fab class="button-small-fab-icon"
-            matTooltip="Net implemented yet">
+            matTooltip="{{shared.mode}}">
       <img ng *ngIf="shared.mode  === 'zeropool'" src="../../../assets/img/zp.png" class="icon-picture" draggable="false"
            alt="">
       <img ng *ngIf="shared.mode  === 'ethereum'" src="../../../assets/img/eth.png" class="icon-picture" draggable="false"

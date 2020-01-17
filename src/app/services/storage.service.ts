@@ -15,6 +15,7 @@ import {ZeropoolCryptoService, zrpPath} from './zeropool-crypto.service';
 import {environment} from '../../environments/environment';
 import {Subject} from 'rxjs';
 import {EncryptionNativeService} from './encryption-native.service';
+import {EthereumCryptoService, ethPath} from './ethereum-crypto.service';
 
 // tslint:disable-next-line:variable-name
 const default_name = 'Account 1';
@@ -36,7 +37,9 @@ export class StorageService {
 
   private lsSetter$: Subject<string> = new Subject<string>();
 
-  constructor(private zrp: ZeropoolCryptoService, private crypto: EncryptionNativeService) {
+  constructor(private zrp: ZeropoolCryptoService,
+              private eth: EthereumCryptoService,
+              private crypto: EncryptionNativeService) {
   }
 
   public async createDefaultAccount(mnemonic: string, password: string) {
@@ -82,44 +85,70 @@ export class StorageService {
   private initAllStorageData(mnemonic: string): AllAccounts {
 
     const availableCurrencies: Currencies = {
-      currenciesList: ['zrp']
+      currenciesList: ['zrp', 'eth']
     };
 
 
-    const derivation_path: DerivationPaths = {
+    const derivation_path_zrp: DerivationPaths = {
       currency: availableCurrencies.currenciesList[0],
       value: zrpPath
     };
 
-    const address: Addresses = {
+    const derivation_path_eth: DerivationPaths = {
+      currency: availableCurrencies.currenciesList[1],
+      value: ethPath
+    };
+
+    const address_zrp: Addresses = {
       currency: availableCurrencies.currenciesList[0],
       value: this.zrp.getAddress(
         this.zrp.getPublicKey(
           mnemonic,
-          derivation_path.value
+          derivation_path_zrp.value
         )
       )
     };
 
-    const private_key: PrivateKeys = {
+    const address_eth: Addresses = {
+      currency: availableCurrencies.currenciesList[1],
+      value: this.eth.getAddress(
+        this.eth.getPublicKey(
+          mnemonic,
+          derivation_path_eth.value
+        )
+      )
+    };
+
+    const private_key_zrp: PrivateKeys = {
       currency: availableCurrencies.currenciesList[0],
       value: this.zrp.getPrivateKey(
         mnemonic,
-        derivation_path.value
+        derivation_path_zrp.value
       ).k.toString()
+    };
+
+    const private_key_eth: PrivateKeys = {
+      currency: availableCurrencies.currenciesList[1],
+      value: this.eth.getPrivateKey(
+        mnemonic,
+        derivation_path_zrp.value
+      ).toString()
     };
 
     // console.log(private_key);
 
     const private_keys: PrivateKeys[] = [];
-    private_keys.push(private_key);
+    private_keys.push(private_key_zrp);
+    private_keys.push(private_key_eth);
 
     const addresses: Addresses[] = [];
-    addresses.push(address);
+    addresses.push(address_zrp);
+    addresses.push(address_eth);
 
 
     const derivation_paths: DerivationPaths[] = [];
-    derivation_paths.push(derivation_path);
+    derivation_paths.push(derivation_path_zrp);
+    derivation_paths.push(derivation_path_eth);
 
     const private_details: PrivateAccountDetails = {
       mnemonic,
@@ -182,7 +211,6 @@ export class StorageService {
     const publicData = JSON.stringify(rawData.pub);
 
     // todo: check for errors
-    console.log(privateData);
     const encryptedData = await this.crypto.encrypt(privateData, password);
 
     await this.saveToStorageRaw('private', encryptedData);
