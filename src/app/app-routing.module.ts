@@ -17,21 +17,21 @@ import {SendConfirmComponent} from './components/send/send-confirm/send-confirm.
 import {WithdrawComponent} from './components/withdraw/withdraw.component';
 
 const routes: Routes = [
-  {path: '', component: WelcomeComponent},
-  {path: 'welcome/:operation', component: WelcomeComponent},
-  {path: 'import', component: ImportAccountComponent},
-  {path: 'create', component: CreateAccountComponent},
-  {path: 'password/:operation', component: PasswordComponent, canActivate: [AuthGuard]},
-  {path: 'repeat', component: RepeatPasswordComponent, canActivate: [AuthGuard]},
-  {path: 'unlock', component: UnlockComponent},
-  {path: 'main', component: MainComponent, canActivate: [AuthGuard]},
-  {path: 'menu', component: MainMenuComponent, canActivate: [AuthGuard]},
-  {path: 'mnemonic', component: ShowMnemonicComponent, canActivate: [AuthGuard]},
-  {path: 'delete', component: DeleteAccountApproveComponent, canActivate: [AuthGuard]},
-  {path: 'deposit', component: DepositComponent, canActivate: [AuthGuard]},
-  {path: 'withdraw', component: WithdrawComponent, canActivate: [AuthGuard]},
-  {path: 'send', component: SendComponent, canActivate: [AuthGuard]},
-  {path: 'confirm', component: SendConfirmComponent, canActivate: [AuthGuard]},
+  {path: '', component: WelcomeComponent, data: {animation: 'index'}},
+  {path: 'welcome/:operation', data: {animation: 'new'}, component: WelcomeComponent},
+  {path: 'import', component: ImportAccountComponent, data: {animation: 'import'}},
+  {path: 'create', component: CreateAccountComponent, data: {animation: 'create'}},
+  {path: 'password/:operation', component: PasswordComponent, data: {animation: 'password'}, canActivate: [AuthGuard]},
+  {path: 'repeat', component: RepeatPasswordComponent, data: {animation: 'repeat'}, canActivate: [AuthGuard]},
+  {path: 'unlock', data: {animation: 'unlock'}, component: UnlockComponent},
+  {path: 'main', component: MainComponent, data: {animation: 'main'}, canActivate: [AuthGuard]},
+  {path: 'menu', component: MainMenuComponent, data: {animation: 'menu'}, canActivate: [AuthGuard]},
+  {path: 'mnemonic', component: ShowMnemonicComponent, data: {animation: 'mnemonic'}, canActivate: [AuthGuard]},
+  {path: 'delete', component: DeleteAccountApproveComponent, data: {animation: 'delete'}, canActivate: [AuthGuard]},
+  {path: 'deposit', component: DepositComponent, data: {animation: 'deposit'}, canActivate: [AuthGuard]},
+  {path: 'withdraw', component: WithdrawComponent, data: {animation: 'withdraw'}, canActivate: [AuthGuard]},
+  {path: 'send', component: SendComponent, data: {animation: 'send'}, canActivate: [AuthGuard]},
+  {path: 'confirm', component: SendConfirmComponent, data: {animation: 'confirm'}, canActivate: [AuthGuard]},
 ];
 
 @NgModule({
