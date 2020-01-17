@@ -154,8 +154,8 @@ export class StorageService {
   async removeAccount() {
     await this.cleanStorageRaw('current_priv');
     await this.cleanStorageRaw('current_pub');
-    await this.cleanStorageRaw('pub');
-    await this.cleanStorageRaw('priv');
+    await this.cleanStorageRaw('public');
+    await this.cleanStorageRaw('private');
   }
 
   addAccount( mnemonic, currency, newCurrency?, derivationPath?, meta? ) {
