@@ -2,6 +2,15 @@
 set -e
 set -o pipefail
 
-./build-txcircuits.sh
+npm i
 
+cd ./txcircuit
+./setup.sh
+cd ..
+
+cd ./MiMCTree
+./compile.sh
+cd ..
+
+npm run copy:assets
 npm run extension:build
