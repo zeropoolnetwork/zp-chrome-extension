@@ -1,44 +1,46 @@
-<app-header></app-header>
-<div class="flex-vertical-stack-centered">
-  <button style="margin-top: -2em" class="button-basic"
-          mat-button
-          (click)="back()">
-    <mat-icon class="button-icon">keyboard_arrow_left</mat-icon>
-    BACK
-  </button>
-  <div class="padding-top-5em">
-    <h2>Enter amount to withdraw</h2>
-  </div>
-  <div class="full-width">
-    <div class="padding-rl-2em">
-      <form class="password-form">
-        <mat-form-field class="password-full-width padding-tb-2em">
-          <label>
-            <input matInput
-                   placeholder="Amount to deposit"
-                   type="number"
-                   [formControl]="amountFormControl">
-          </label>
-          <mat-error *ngIf="amountFormControl.hasError('min') && !amountFormControl.hasError('required')">
-            Your withdrawal amount must be at least more than 0
-          </mat-error>
-          <mat-error *ngIf="amountFormControl.hasError('required')">
-            Amount is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-      </form>
+<div class="wrapper">
+  <app-header></app-header>
+  <div class="flex-vertical-stack-centered">
+    <button style="margin-top: 2em" class="button-basic"
+            mat-button
+            (click)="back()">
+      <mat-icon class="button-icon">keyboard_arrow_left</mat-icon>
+      BACK
+    </button>
+    <div class="padding-top-5em">
+      <h2>Enter amount to withdraw</h2>
     </div>
-  </div>
-  <div>
-    <button *ngIf="amountFormControl.value"
-            class="button-basic"
-            mat-raised-button>
-      Withdraw {{(amountFormControl.value + ' ETH') }}
-    </button>
-    <button *ngIf="!amountFormControl.value"
-            class="button-basic"
-            mat-raised-button>
-      Withdraw
-    </button>
+    <div class="full-width">
+      <div class="padding-rl-2em">
+        <form class="password-form">
+          <mat-form-field class="password-full-width padding-tb-2em">
+            <label>
+              <input matInput
+                     placeholder="Amount to deposit"
+                     type="number"
+                     [formControl]="amountFormControl">
+            </label>
+            <mat-error *ngIf="amountFormControl.hasError('min') && !amountFormControl.hasError('required')">
+              Your withdrawal amount must be at least more than 0
+            </mat-error>
+            <mat-error *ngIf="amountFormControl.hasError('required')">
+              Amount is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </form>
+      </div>
+    </div>
+    <div>
+      <button *ngIf="amountFormControl.value"
+              class="button-basic"
+              mat-raised-button>
+        Withdraw {{(amountFormControl.value + ' ETH') }}
+      </button>
+      <button *ngIf="!amountFormControl.value"
+              class="button-basic"
+              mat-raised-button>
+        Withdraw
+      </button>
+    </div>
   </div>
 </div>
