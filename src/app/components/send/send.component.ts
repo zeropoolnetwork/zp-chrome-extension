@@ -42,7 +42,7 @@ export class SendComponent implements OnInit {
   }
 
   send() {
-    this.shared.address = this.address.value;
+    this.shared.addressTo = this.address.value;
     this.shared.sum = this.amount.value;
     this.router.navigate(['/confirm']);
   }

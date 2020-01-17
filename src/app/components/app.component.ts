@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
-import {animateFunc} from '../route-animations';
+import {animateFunc} from '../services/route-animations';
 import {SharedDataService} from '../services/shared-data.service';
 import {StorageService} from '../services/storage.service';
 

@@ -35572,17 +35572,17 @@ Returns an array of booleans. 0 is LSB of first byte and so on.
 
 
     /**
-     * Converts to a checksum address
+     * Converts to a checksum addressTo
      *
      * @method toChecksumAddress
-     * @param {String} address the given HEX address
+     * @param {String} address the given HEX addressTo
      * @return {String}
      */
     var toChecksumAddress = function (address) {
       if (typeof address === 'undefined') return '';
 
       if(!/^(0x)?[0-9a-f]{40}$/i.test(address))
-        throw new Error('Given address "'+ address +'" is not a valid Ethereum address.');
+        throw new Error('Given addressTo "'+ address +'" is not a valid Ethereum addressTo.');
 
 
 
@@ -35769,7 +35769,7 @@ Returns an array of booleans. 0 is LSB of first byte and so on.
         }
 
         if(!utils.isAddress(value)) {
-          throw new Error(value +' is not a valid address, or the checksum is invalid.');
+          throw new Error(value +' is not a valid addressTo, or the checksum is invalid.');
         }
 
         return utils.leftPad(value.toLowerCase(), size);
@@ -35989,14 +35989,14 @@ Returns an array of booleans. 0 is LSB of first byte and so on.
     };
 
     /**
-     * Checks if the given string is an address
+     * Checks if the given string is an addressTo
      *
      * @method isAddress
-     * @param {String} address the given HEX address
+     * @param {String} address the given HEX addressTo
      * @return {Boolean}
      */
     var isAddress = function (address) {
-      // check if it has the basic requirements of an address
+      // check if it has the basic requirements of an addressTo
       if (!/^(0x)?[0-9a-f]{40}$/i.test(address)) {
         return false;
         // If it's ALL lowercase or ALL upppercase
@@ -36011,10 +36011,10 @@ Returns an array of booleans. 0 is LSB of first byte and so on.
 
 
     /**
-     * Checks if the given string is a checksummed address
+     * Checks if the given string is a checksummed addressTo
      *
      * @method checkAddressChecksum
-     * @param {String} address the given HEX address
+     * @param {String} address the given HEX addressTo
      * @return {Boolean}
      */
     var checkAddressChecksum = function (address) {

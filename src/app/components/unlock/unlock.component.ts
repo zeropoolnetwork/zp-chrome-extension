@@ -34,6 +34,8 @@ export class UnlockComponent implements OnInit {
     const accounts = await this.storage.getAccountPrivateData(password);
     if (accounts.accounts.length > 0) {
       this.shared.mnemonic = accounts.accounts[0].private_details.mnemonic;
+      this.shared.keys = (accounts.accounts[0].private_details.private_keys);
+      this.shared.addresses = (await this.storage.getAccountPublicData()).accounts[0].public_details.addresses;
       await this.router.navigate(['/main']);
     } else {
       alert('bad password');
