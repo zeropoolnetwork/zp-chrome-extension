@@ -1,7 +1,7 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@import '~@angular/material/theming';
+
+@import '../node_modules/@angular/material/theming';
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -12,21 +12,202 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$zp-chrome-extension-primary: mat-palette($mat-indigo);
-$zp-chrome-extension-accent: mat-palette($mat-pink, A200, A100, A400);
+$app-primary: mat-palette($mat-green);
+$app-accent: mat-palette($mat-deep-orange, A200, A100, A400);
+
 
 // The warn palette is optional (defaults to red).
-$zp-chrome-extension-warn: mat-palette($mat-red);
+$app-warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$zp-chrome-extension-theme: mat-light-theme($zp-chrome-extension-primary, $zp-chrome-extension-accent, $zp-chrome-extension-warn);
+$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($zp-chrome-extension-theme);
+// @include angular-material-theme($app-theme);
+
+$theme: $app-theme;
+
+@include mat-core-theme($theme);
+//@include mat-autocomplete-theme($theme);
+//@include mat-badge-theme($theme);
+//@include mat-bottom-sheet-theme($theme);
+@include mat-button-theme($theme);
+//@include mat-button-toggle-theme($theme);
+//@include mat-card-theme($theme);
+
+//@include mat-checkbox-theme($theme);
+@mixin my-mat-checkbox-theme($theme) {
+  $is-dark-theme: map-get($theme, is-dark);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+
+  // The color of the checkbox's checkmark / mixedmark.
+  $checkbox-mark-color: mat-color($background, background);
+
+  // NOTE(traviskaufman): While the spec calls for translucent blacks/whites for disabled colors,
+  // this does not work well with elements layered on top of one another. To get around this we
+  // blend the colors together based on the base color and the theme background.
+  // $white-30pct-opacity-on-dark: #686868;
+  // $black-26pct-opacity-on-light: #b0b0b0;
+  // $disabled-color: if($is-dark-theme, $white-30pct-opacity-on-dark, $black-26pct-opacity-on-light);
+
+  .mat-checkbox-frame {
+    // border-radius: 10px;
+    border-color: rgb(0,0,0); //mat-color($foreground, secondary-text);
+    border-width: 1px !important;
+  }
+
+  .mat-checkbox-checkmark {
+    fill: $checkbox-mark-color;
+  }
+
+  .mat-checkbox-checkmark-path {
+    // !important is needed here because a stroke must be set as an
+    // attribute on the SVG in order for line animation to work properly.
+    stroke: green !important; //#000 !important;
+
+    @include cdk-high-contrast(black-on-white) {
+      // Having the one above be !important ends up overriding the browser's automatic
+      // color inversion so we need to re-invert it ourselves for black-on-white.
+      stroke: red !important//#000 !important;
+    }
+  }
+
+  .mat-checkbox-mixedmark {
+    background-color: $checkbox-mark-color;
+  }
+
+  .mat-checkbox-indeterminate, .mat-checkbox-checked {
+    &.mat-primary .mat-checkbox-background {
+      // background-color: mat-color($primary);
+    }
+
+    &.mat-accent .mat-checkbox-background {
+      // background-color: mat-color($accent);
+      // background-color: rgb(255,255,255);
+    }
+
+    &.mat-warn .mat-checkbox-background {
+      background-color: mat-color($warn);
+    }
+  }
+
+  //.mat-checkbox-disabled {
+  //  &.mat-checkbox-checked,
+  //  &.mat-checkbox-indeterminate {
+  //    .mat-checkbox-background {
+  //      background-color: $disabled-color;
+  //    }
+  //  }
+  //
+  //  //&:not(.mat-checkbox-checked) {
+  //  //  .mat-checkbox-frame {
+  //  //    border-color: $disabled-color;
+  //  //  }
+  //  //}
+  //
+  //  .mat-checkbox-label {
+  //    color: mat-color($foreground, secondary-text);
+  //  }
+  //
+  //  @include cdk-high-contrast {
+  //    opacity: 0.5;
+  //  }
+  //}
+
+  // This one is moved down here so it can target both
+  // the theme colors and the disabled state.
+  @include cdk-high-contrast {
+    .mat-checkbox-background {
+      // Needs to be removed because it hides the checkbox outline.
+      background: none;
+    }
+  }
+
+  // Switch this to a solid color since we're using `opacity`
+  // to control how opaque the ripple should be.
+  .mat-checkbox .mat-ripple-element {
+    background-color: map_get(map-get($theme, foreground), base);
+  }
+
+  .mat-checkbox-checked:not(.mat-checkbox-disabled),
+  .mat-checkbox:active:not(.mat-checkbox-disabled) {
+    &.mat-primary .mat-ripple-element {
+      background: mat-color($primary);
+    }
+
+    &.mat-accent .mat-ripple-element {
+      background: mat-color($accent);
+    }
+
+    &.mat-warn .mat-ripple-element {
+      background: mat-color($warn);
+    }
+  }
+}
+
+@include my-mat-checkbox-theme($theme);
+
+//@include mat-chips-theme($theme);
+//@include mat-table-theme($theme);
+//@include mat-datepicker-theme($theme);
+//@include mat-dialog-theme($theme);
+//@include mat-divider-theme($theme);
+//@include mat-expansion-panel-theme($theme);
+@include mat-form-field-theme($theme);
+//@include mat-grid-list-theme($theme);
+//@include mat-icon-theme($theme);
+@include mat-input-theme($theme);
+//@include mat-list-theme($theme);
+//@include mat-menu-theme($theme);
+//@include mat-paginator-theme($theme);
+//@include mat-progress-bar-theme($theme);
+//@include mat-progress-spinner-theme($theme);
+//@include mat-radio-theme($theme);
+//@include mat-select-theme($theme);
+//@include mat-sidenav-theme($theme);
+@include mat-slide-toggle-theme($theme);
+@include mat-slider-theme($theme);
+//@include mat-stepper-theme($theme);
+//@include mat-sort-theme($theme);
+//@include mat-tabs-theme($theme);
+//@include mat-toolbar-theme($theme);
+//@include mat-tooltip-theme($theme);
+//@include mat-tree-theme($theme);
+//@include mat-snack-bar-theme($theme);
+
+.mat-checkbox-inner-container {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.mat-checkbox-frame {
+
+}
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-thumb {
+  background-color: white;
+  border: 1px solid #8d299e;
+}
+
+.mat-form-field-label {
+  // display: none !important;
+}
