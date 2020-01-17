@@ -16,6 +16,4 @@ compiler:
   - gcc
 
 script:
-- npm i
-- ./build-txcircuits.sh
-- npm run extension:build
+- ./build.sh
