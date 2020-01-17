@@ -4,6 +4,41 @@
   padding-top: 50px;
 }
 
+.swap-div {
+  align-self: center;
+  align-items: center;
+  width: 60px;
+  margin-left: 0.8em;
+  margin-top: 0.2em
+}
+
+.dark {
+  color: black !important;
+}
+.grey {
+  color:  #434343 !important;
+}
+
+.white {
+  color: white !important;
+}
+
+.lightwhite {
+  color: #adadad !important;
+}
+
+.button-small-fab {
+  background: none;
+  box-shadow: none;
+}
+
+.button-small-fab-icon {
+  background: none;
+  color: black;
+  box-shadow: none;
+}
+
+
 .unusualHr {
   margin-top: 0.4em;
   border: 0.25px solid rgb(132, 142, 156);;

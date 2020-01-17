@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {StorageService} from '../../services/storage.service';
 import {from} from 'rxjs';
 import {map, take} from 'rxjs/operators';
+import {SharedDataService} from '../../services/shared-data.service';
 
 export function toShortAddress(address: string): string {
   return address.substring(0, 8) + '...' + address.substring(address.length - 8, address.length);
@@ -18,7 +19,8 @@ export class HeaderComponent implements OnInit {
   currentAddress: string;
   currentName: string;
 
-  constructor(private storage: StorageService) {
+  constructor(private storage: StorageService,
+              public shared: SharedDataService) {
     from(this.storage.getAccountPublicData()).pipe(
       map((data) => {
          this.currentName = data.accounts[0].public_details.name;

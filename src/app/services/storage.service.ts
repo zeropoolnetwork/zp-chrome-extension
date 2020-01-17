@@ -43,6 +43,12 @@ export class StorageService {
     await this.setToStorageAll(this.initAllStorageData(mnemonic), password);
   }
 
+  public async changeAccountMode(mode: string) {
+    const currentPub = await this.getAccountPublicData();
+    currentPub.accounts[0].public_details.meta = {mode};
+    await this.saveToStorageRaw('public', JSON.stringify(currentPub));
+  }
+
   // TODO: In case storage is empty this function returns `null`
   public async getAccountPublicData(): Promise<AccountsPublic> {
     try {
@@ -125,7 +131,7 @@ export class StorageService {
       addresses,
       availableCurrencies,
       derivation_paths,
-      meta: {},
+      meta: {'mode': 'zeropool'},
     };
 
     const account: AccountPrivate = {

@@ -15,3 +15,19 @@
     height: 100%!important;
   }
 }
+
+.extension-box-ether {
+  background-color: #3b3b3b;
+  border: 1px solid lightgray;
+  width: 360px;
+  height: 590px;
+  overflow: hidden;
+  position: relative;
+
+
+    color: white !important;
+
+  & div {
+    height: 100%!important;
+  }
+}

@@ -15,7 +15,7 @@ export class SendComponent implements OnInit {
 
   constructor(private location: Location,
               private fb: FormBuilder,
-              private shared: SharedDataService,
+              public shared: SharedDataService,
               private router: Router) {
     this.createForm();
   }

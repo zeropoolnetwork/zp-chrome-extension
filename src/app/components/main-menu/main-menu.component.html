@@ -9,11 +9,11 @@
   </div>
   <mat-list>
     <mat-list-item>
-      <h3 routerLink="/password/decrypt">Export mnemonic</h3>
+      <h3 routerLink="/password/decrypt" [ngClass]="{'text-white': shared.mode === 'ethereum', 'text-black': shared.mode === 'zeropool'}">Export mnemonic</h3>
     </mat-list-item>
     <mat-divider></mat-divider>
     <mat-list-item>
-      <h3 routerLink="/delete">Delete account</h3>
+      <h3 routerLink="/delete" [ngClass]="{'text-white': shared.mode === 'ethereum', 'text-black': shared.mode === 'zeropool'}">Delete account</h3>
     </mat-list-item>
   </mat-list>
 </div>
