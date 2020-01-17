@@ -1,7 +1,7 @@
-<div class="flex-vertical-stack-centered">
-  <div><p>{{mnemonic}}</p></div>
+<div class="wrapper flex-vertical-stack-centered">
+  <div class="padding-rl-2em padding-b-2em"><p align="center">{{mnemonic}}</p></div>
   <div>
-    <button class="button-basic"
+    <button class="button-basic margin-t-2"
             mat-raised-button
             matTooltip="{{copyMessage}}"
             (mouseenter)="this.copyMessage = 'Copy mnemonic'"

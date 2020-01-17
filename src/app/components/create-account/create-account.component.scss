@@ -1,3 +1,8 @@
+.wrapper {
+   width: 360px;
+   height: 590px;
+ }
+
 .text-subhead {
   text-align: center;
   padding: 1em 1em
@@ -29,4 +34,12 @@
 
 .button-icon {
   margin-top: -0.1em;
+}
+
+.flex-inline {
+  padding-top: 3em;
+  align-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
 }

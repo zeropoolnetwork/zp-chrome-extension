@@ -1,5 +1,11 @@
+.wrapper {
+  width: 360px;
+  height: 540px;
+  padding-top: 50px;
+}
+
 .unusualHr {
-  margin-top: 0.1em;
+  margin-top: 0.4em;
   border: 0.25px solid rgb(132, 142, 156);;
   border-radius: 15px;
   margin-right: 2em;
@@ -24,7 +30,7 @@
 
 .subheader {
   height: 50px;
-  margin-top: -8em
+  //margin-top: -8em
 }
 
 .center {
