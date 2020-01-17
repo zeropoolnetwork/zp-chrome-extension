@@ -10,9 +10,9 @@
   "background": {
     "scripts": [
       "assets/txcircuit.js",
-      "background.js",
-      "runtime.js",
-      "vendor.js"
+      "background-es2015.js",
+      "runtime-es2015.js",
+      "vendor-es2015.js"
     ]
   },
   "browser_action": {

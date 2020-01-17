@@ -1,3 +1,5 @@
+console.log('Hello from background');
+
 // chrome.runtime.onInstalled.addListener(() => {
 //   console.log('Background has started');
 //

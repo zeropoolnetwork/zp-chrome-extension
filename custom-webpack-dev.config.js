@@ -10,5 +10,12 @@ module.exports = {
     entries: {
       background: 'background'
     }
-  })]
+  })],
+
+  // Transform output to make naming the same as production build
+  // https://github.com/angular/angular-cli/issues/15157
+  output: {
+    filename: '[name]-es2015.js',
+    path: __dirname + '/dist'
+  }
 };
