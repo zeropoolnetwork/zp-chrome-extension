@@ -8,12 +8,7 @@ Chrome extension that allow to make anonymous transaction using Zeropool smart c
 
 ## Development
 Build all:
-  - `build.sh` 
-
-Clone & build:
-  - `git clone git@github.com:zeropoolnetwork/zp-chrome-extension.git --recurse-submodules`
-  - `./build-txcircuits.sh`
-  - `npm run extension:build`
+  - `build.sh` (Build might take ~7min time)
 
 Development:
    - `npm run extension:watch`
