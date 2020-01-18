@@ -1,38 +1,34 @@
 <div class="wrapper">
   <app-header></app-header>
-  <div class="subheader fixed-width flex-row-between">
-    <div class="swap-div">
-      <button mat-mini-fab class="button-small-fab" (click)="toggleMode()">
-        <mat-icon class="button-small-fab-icon" [ngClass]="{'white': shared.mode === 'ethereum', 'dark': shared.mode === 'zeropool'}">swap_horiz</mat-icon>
-      </button>
-    </div>
-    <div class="center margin-top-small"
-         matTooltip="{{copyMessage}}"
-         (mouseenter)="this.copyMessage = 'Copy address'"
-         (click)="copyMnemonicToClipboard()">
-      <div class="account-text"  [ngClass]="{'white': shared.mode === 'ethereum', 'grey': shared.mode === 'zeropool'}">
+  <div class="main-content">
+    <button mat-mini-fab class="button-mini-fab" (click)="toggleMode()">
+      <mat-icon [ngClass]="{'white': shared.mode === 'ethereum', 'dark': shared.mode === 'zeropool'}">swap_horiz</mat-icon>
+    </button>
+    <div class="account-info" matTooltip="{{copyMessage}}"
+       (mouseenter)="this.copyMessage = 'Copy address'"
+       (click)="copyMnemonicToClipboard()">
+      <span class="account-title" [ngClass]="{'white': shared.mode === 'ethereum', 'grey': shared.mode === 'zeropool'}">
         {{currentName}}
+      </span>
+      <div class="account-address" [ngClass]="{'lightwhite': shared.mode === 'ethereum', 'grey': shared.mode === 'zeropool'}">
+        {{currentAddressShort}}
       </div>
-      <div class="account-address"  [ngClass]="{'lightwhite': shared.mode === 'ethereum', 'grey': shared.mode === 'zeropool'}">{{currentAddressShort}}</div>
     </div>
-    <div style="width: 70px"></div>
-  </div>
-  <hr class="unusualHr">
-  <div class="flex-row-center margins">
-    <div class="grey-text">
-      <h3 [ngClass]="{'white': shared.mode === 'ethereum', 'grey': shared.mode === 'zeropool'}">{{(balance$ | async) || '0'}} <strong *ngIf="shared.mode  === 'ethereum' "> ETH</strong>  <strong *ngIf="shared.mode  === 'zeropool' "> zpETH</strong></h3>
-    </div>
-    <div class="margin-t-2">
-      <button mat-raised-button class="main-btn" routerLink="/deposit">Deposit</button>
-      <button mat-raised-button class="main-btn" routerLink="/withdraw">Withdraw</button>
-      <button mat-raised-button class="main-btn" routerLink="/send">Send</button>
-    </div>
-  </div>
-  <div>
-    <h4 class="text-headers" [ngClass]="{'white': shared.mode === 'ethereum', 'grey': shared.mode === 'zeropool'}">Transactions History</h4>
     <hr class="unusualHr">
-  </div>
-  <div>
-    <h4 class="text-headers-small" [ngClass]="{'lightwhite': shared.mode === 'ethereum', 'grey': shared.mode === 'zeropool'}">Not implemented yet</h4>
+    <div class="balance">
+      <div class="balance-text">
+        <h3 [ngClass]="{'white': shared.mode === 'ethereum', 'grey': shared.mode === 'zeropool'}">{{(balance$ | async) || '0'}} <strong *ngIf="shared.mode  === 'ethereum' "> ETH</strong>  <strong *ngIf="shared.mode  === 'zeropool' "> zpETH</strong></h3>
+      </div>
+      <div class="main-buttons-container">
+        <button mat-raised-button class="main-btn" routerLink="/deposit">Deposit</button>
+        <button mat-raised-button class="main-btn" routerLink="/withdraw">Withdraw</button>
+        <button mat-raised-button class="main-btn" routerLink="/send">Send</button>
+      </div>
+    </div>
+    <hr class="unusualHr">
+    <div class="transactions-history">
+      <h4 class="transactions-history-header" [ngClass]="{'white': shared.mode === 'ethereum', 'grey': shared.mode === 'zeropool'}">Transactions History</h4>
+      <p class="transactions-history-hint" [ngClass]="{'lightwhite': shared.mode === 'ethereum', 'grey': shared.mode === 'zeropool'}">Not implemented yet</p>
+    </div>
   </div>
 </div>

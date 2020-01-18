@@ -1,40 +1,27 @@
-<div>
-  <div (keydown)="onKeydown($event)" class="full-width">
-    <div class="flex-vertical-stack-centered">
-      <div class="padding-top-5em">
-        <h2 align="center">Welcome back</h2>
-        <h5 align="center">Enter the password to unlock the account</h5>
-      </div>
-      <div class="full-width">
-        <div class="padding-rl-2em">
-          <mat-card>
-          <form class="password-form">
+<div (keydown)="onKeydown($event)" class="wrapper">
+  <div class="form-card">
+    <h2 class="title">Welcome back</h2>
+    <p class="text">Enter the password to unlock the account</p>
 
-              <mat-form-field class="password-full-width padding-tb-2em">
-                <label>
-                  <input matInput
-                         placeholder="Password"
-                         type="password"
-                         [formControl]="passwordFormControl">
-                </label>
-                <mat-error
-                  *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')">
-                  Your password must be at least 8 characters long
-                </mat-error>
-                <mat-error *ngIf="passwordFormControl.hasError('required')">
-                  Password is <strong>required</strong>
-                </mat-error>
-              </mat-form-field>
-
-          </form>
-          </mat-card>
-        </div>
-      </div>
-      <div class="margin-t-2">
-        <button mat-raised-button class="main-btn" routerLink="/welcome/new">New account</button>
-        <button mat-raised-button class="main-btn" (click)="tryUnlock(passwordFormControl.value)">Unlock</button>
-      </div>
+    <form class="password-form">
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput
+               type="password"
+               [formControl]="passwordFormControl">
+        <mat-icon matSuffix>lock</mat-icon>
+        <mat-error
+          *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')">
+          Your password must be at least 8 characters long
+        </mat-error>
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </form>
+    <div>
+      <button mat-raised-button class="main-btn" routerLink="/welcome/new">New account</button>
+      <button mat-raised-button class="main-btn" (click)="tryUnlock(passwordFormControl.value)">Unlock</button>
     </div>
-
   </div>
 </div>
