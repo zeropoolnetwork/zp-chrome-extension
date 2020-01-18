@@ -6,7 +6,10 @@
 
 Chrome extension that allow to make anonymous transaction using Zeropool smart contract.
 
-## Development
+## About
+Demo wallet that allows to send anonymous transactions on ETH. There are 2 modes: Privacy Mode and Usual mode to send ETH. To use Privacy mode correctly you will need to have a relayer who will allow to withdraw your ETH on new address that will not be connected with transactions. All the guides will be soon. Current repo is just simple ui demo that demonstrate potential usecase of zk tech in ETH.
+
+## Running
 Build all:
   - `build.sh` (Build might take ~7min time)
 
