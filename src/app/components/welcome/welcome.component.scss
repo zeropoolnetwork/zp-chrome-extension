@@ -1,3 +1,6 @@
+$black-main: rgba(0, 0, 0, 0.87);
+$black-more: rgba(0, 0, 0, 0.54);
+
 .wrapper {
   width: 360px;
   height: 590px;
@@ -6,12 +9,15 @@
 .welcome {
   & button {
     width: 200px;
-    margin: 10px;
+    margin: 8px 0;
     text-transform: uppercase;
+    color: $black-main;
   }
 
   & p {
-    text-transform: uppercase
+    text-transform: uppercase;
+    color: $black-more;
+    margin: 0 0 32px 0;
   }
 }
 

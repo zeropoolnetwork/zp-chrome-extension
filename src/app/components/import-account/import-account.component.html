@@ -1,51 +1,35 @@
-<div (keydown)="onKeydown($event)" class="wrapper">
-  <div class="flex-vertical-stack-centered padding-top-5em">
-    <div class="padding-top-8em">
-      <h2>Enter your mnemonic</h2>
-    </div>
-    <div class="full-width">
-      <div class="padding-rl-2em">
-        <form class="textarea-form">
-          <mat-card>
-          <mat-form-field class="textarea-full-width padding-tb-2em">
-            <label>
-              <textarea matInput
-                        class="no-resize"
-                        rows="3"
-                        placeholder="Mnemonic phrase"
-                        [formControl]="mnemonicFormControl"
-                        (input)="validate(mnemonicFormControl.value)">
-              </textarea>
-            </label>
-          </mat-form-field>
-          <mat-error *ngIf="isDisabled && !mnemonicFormControl.hasError('required') ">
-            Your Mnemonic is incorrect
-          </mat-error>
-          <mat-error *ngIf="mnemonicFormControl.hasError('required') && mnemonicFormControl.touched">
-            Mnemonic is <strong>required</strong>
-          </mat-error>
-          </mat-card>
-        </form>
-      </div>
-    </div>
-  </div>
-  <div id="footer">
-    <div>
-      <button class="button-basic"
-              mat-button
-              routerLink="/">
-        <mat-icon class="button-icon">keyboard_arrow_left</mat-icon>
-        BACK
-      </button>
-    </div>
-    <div>
-      <button class="button-basic"
-              mat-button
-              [disabled]="isDisabled"
-              (click)="next()">
-        NEXT
-        <mat-icon class="button-icon">keyboard_arrow_right</mat-icon>
-      </button>
-    </div>
+<div (keydown)="onKeydown($event)" class="flex-wrapper">
+  <h2 class="title">Enter your mnemonic</h2>
+  <form class="password-form">
+    <mat-form-field appearance="outline">
+      <mat-label>Mnemonic phrase</mat-label>
+      <textarea matInput
+                rows="3"
+                [formControl]="mnemonicFormControl"
+                (input)="validate(mnemonicFormControl.value)">
+      </textarea>
+<!--      <mat-icon matSuffix>lock</mat-icon>-->
+      <mat-error *ngIf="isDisabled && !mnemonicFormControl.hasError('required') ">
+        Your Mnemonic is incorrect
+      </mat-error>
+      <mat-error *ngIf="mnemonicFormControl.hasError('required') && mnemonicFormControl.touched">
+        Mnemonic is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </form>
+  <div class="nav-buttons">
+    <button class="button button-back"
+            mat-raised-button
+            routerLink="/">
+      <mat-icon class="button-icon">keyboard_arrow_left</mat-icon>
+      BACK
+    </button>
+    <button [disabled]="isDisabled"
+            class="button button-next"
+            mat-raised-button
+            (click)="next()">
+      NEXT
+      <mat-icon class="button-icon">keyboard_arrow_right</mat-icon>
+    </button>
   </div>
 </div>

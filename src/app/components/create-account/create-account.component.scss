@@ -1,45 +1,15 @@
-.wrapper {
-   width: 360px;
-   height: 590px;
- }
+$black-main: rgba(0, 0, 0, 0.87);
+$black-more: rgba(0, 0, 0, 0.54);
+$black-hint: rgba(0, 0, 0, 0.38);
 
-.text-subhead {
+.text {
+  color: $black-main;
+  font-size: 12px;
+  margin: 0 0 16px 0;
   text-align: center;
-  padding: 1em 1em
 }
 
-.flex-vertical-stack-centered {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#footer {
-  box-shadow: 0 -2px 5px -5px #333;
-  margin-top: 10em;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  background: white;
-}
-
-.padding-top-5em {
-    padding-top: 5em;
-}
-
-.button-basic {
-  text-transform: capitalize;
-}
-
-.button-icon {
-  margin-top: -0.1em;
-}
-
-.flex-inline {
-  padding-top: 3em;
-  align-content: center;
-  align-items: center;
-  display: flex;
-  justify-content: space-around;
+.checkbox {
+  margin: 24px 0;
+  font-size: 12px;
 }

@@ -4,7 +4,7 @@ $black-hint: rgba(0, 0, 0, 0.38);
 
 .wrapper {
   width: 360px;
-  height: 540px;
+  height: 545px;
 }
 
 .main-content {
@@ -91,7 +91,7 @@ $black-hint: rgba(0, 0, 0, 0.38);
   text-align: center;
   font-size: 16px;
 
-  .grey {
+  &.grey {
     color: $black-main;
   }
 }
@@ -100,7 +100,7 @@ $black-hint: rgba(0, 0, 0, 0.38);
   text-align: center;
   font-size: 12px;
 
-  .grey {
+  &.grey {
     color: $black-hint;
   }
 }
