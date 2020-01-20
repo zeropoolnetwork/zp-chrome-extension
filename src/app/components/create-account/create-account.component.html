@@ -1,42 +1,29 @@
-<div (keydown)="onKeydown($event)" class="wrapper">
-  <div class="flex-vertical-stack-centered padding-top-5em">
-    <div>
-      <h2>Save your mnemonic</h2>
-    </div>
-    <div>
-      <p class="text-subhead">{{mnemonic}}</p>
-    </div>
-    <div>
-      <button class="button-basic"
-              mat-raised-button
-              matTooltip="{{copyMessage}}"
-              (mouseenter)="this.copyMessage = 'Copy mnemonic'"
-              (click)="copyMnemonicToClipboard()">
-        <mat-icon>file_copy</mat-icon>
-        COPY
-      </button>
-    </div>
-    <div class="padding-top-5em">
-      <mat-checkbox (click)="flip()">I have saved mnemonic to the safe place</mat-checkbox>
-    </div>
+<div (keydown)="onKeydown($event)" class="flex-wrapper">
+  <h2 class="title">Save your mnemonic</h2>
+  <p class="text">{{mnemonic}}</p>
+  <button mat-raised-button
+          matTooltip="{{copyMessage}}"
+          (mouseenter)="this.copyMessage = 'Copy mnemonic'"
+          (click)="copyMnemonicToClipboard()">
+    <mat-icon>file_copy</mat-icon>
+    COPY
+  </button>
+  <div class="checkbox">
+    <mat-checkbox (click)="flip()">I have saved mnemonic to the safe place</mat-checkbox>
   </div>
-  <div class="flex-inline">
-    <div>
-      <button class="button-basic"
-              mat-raised-button
-              routerLink="/">
-        <mat-icon class="button-icon">keyboard_arrow_left</mat-icon>
-        BACK
-      </button>
-    </div>
-    <div>
-      <button [disabled]="isDisabled"
-              class="button-basic"
-              mat-raised-button
-              (click)="next()">
-        NEXT
-        <mat-icon class="button-icon">keyboard_arrow_right</mat-icon>
-      </button>
-    </div>
+  <div class="nav-buttons">
+    <button class="button button-back"
+            mat-raised-button
+            routerLink="/">
+      <mat-icon class="button-icon">keyboard_arrow_left</mat-icon>
+      BACK
+    </button>
+    <button [disabled]="isDisabled"
+            class="button button-next"
+            mat-raised-button
+            (click)="next()">
+      NEXT
+      <mat-icon class="button-icon">keyboard_arrow_right</mat-icon>
+    </button>
   </div>
 </div>

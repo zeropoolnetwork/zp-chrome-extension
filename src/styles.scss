@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 
@@ -210,4 +214,53 @@ body {
 
 .mat-form-field-label {
   // display: none !important;
+}
+
+$black-main: rgba(0, 0, 0, 0.87);
+$black-more: rgba(0, 0, 0, 0.54);
+$black-hint: rgba(0, 0, 0, 0.38);
+
+.flex-wrapper {
+  width: 360px;
+  height: 600px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 24px;
+  color: $black-main;
+  margin: 0 0 24px 0;
+  text-align: center;
+}
+
+// Button BACK and NEXT
+.nav-buttons {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 100%;
+
+  .button {
+    &.button-back {
+      padding-left: 8px;
+    }
+
+    &.button-next {
+      padding-right: 8px;
+    }
+
+    .button-icon {
+      margin-top: -0.1em;
+    }
+  }
+}
+
+.password-form {
+  margin: 16px 0;
+  text-align: center;
+  width: 100%;
 }
