@@ -1,25 +1,25 @@
-.wrapper {
-  width: 360px;
-  height: 590px;
-  flex-direction: column;
-  box-sizing: border-box;
-  display: flex;
-  place-content: center;
-  align-items: center;
+.menu-container {
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
-.flex-vertical-stack-centered {
-  position: relative;
+.menu-items {
+  width: 100%;
 }
 
-.button-basic {
-  text-transform: capitalize;
+.menu-item {
+  margin: 8px;
+  text-transform: uppercase;
+  width: 170px;
 }
 
-.text-white {
-  color: white !important;
+.btn-close-menu {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  background: transparent;
+  box-shadow: none;
 }
 
-.text-black {
-  color: black !important;
+.menu-separator {
+  margin: 0;
 }
