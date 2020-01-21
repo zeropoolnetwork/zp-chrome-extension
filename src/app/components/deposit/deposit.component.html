@@ -1,45 +1,36 @@
-<div class="wrapper">
+<div class="main-wrapper">
   <app-header></app-header>
-  <div class="flex-vertical-stack-centered">
-    <button style="margin-top: 2em" class="button-basic"
-            mat-raised-button
-            (click)="back()">
-      <mat-icon class="button-icon">keyboard_arrow_left</mat-icon>
-      BACK
-    </button>
-    <div class="padding-top-5em">
-      <h2>Enter amount to deposit</h2>
-    </div>
-    <div class="full-width">
-      <div class="padding-rl-2em">
-        <form class="password-form">
-          <mat-card>
-          <mat-form-field class="password-full-width padding-tb-2em">
-            <label>
-              <input matInput
-                     placeholder="Amount to deposit"
-                     type="number"
-                     [formControl]="amountFormControl">
-            </label>
-            <mat-error *ngIf="amountFormControl.hasError('min') && !amountFormControl.hasError('required')">
-              Your deposit amount must be at least more than 0
-            </mat-error>
-            <mat-error *ngIf="amountFormControl.hasError('required')">
-              Amount is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-          </mat-card>
-        </form>
-      </div>
-    </div>
-    <div class="margin-top-2em">
+  <div class="main-content main-flex-container">
+    <h2 class="title">Enter amount to deposit</h2>
+    <form class="password-form">
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Amount to deposit</mat-label>
+        <input matInput
+               type="number"
+               [formControl]="amountFormControl">
+        <mat-icon matSuffix>lock</mat-icon>
+        <mat-error *ngIf="amountFormControl.hasError('min') && !amountFormControl.hasError('required')">
+          Your deposit amount must be at least more than 0
+        </mat-error>
+        <mat-error *ngIf="amountFormControl.hasError('required')">
+          Amount is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </form>
+    <div class="nav-buttons">
+      <button class="button button-back"
+              mat-raised-button
+              (click)="back()">
+        <mat-icon class="button-icon">keyboard_arrow_left</mat-icon>
+        BACK
+      </button>
       <button *ngIf="amountFormControl.value"
-              class="button-basic"
+              class="button"
               mat-raised-button>
         Deposit {{(amountFormControl.value + ' ETH') }}
       </button>
       <button *ngIf="!amountFormControl.value"
-              class="button-basic"
+              class="button"
               mat-raised-button>
         Deposit
       </button>

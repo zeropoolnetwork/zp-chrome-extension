@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="main-wrapper">
   <app-header></app-header>
   <div class="main-content">
     <button mat-mini-fab class="button-mini-fab" (click)="toggleMode()">
@@ -20,9 +20,9 @@
         <h3 [ngClass]="{'white': shared.mode === 'ethereum', 'grey': shared.mode === 'zeropool'}">{{(balance$ | async) || '0'}} <strong *ngIf="shared.mode  === 'ethereum' "> ETH</strong>  <strong *ngIf="shared.mode  === 'zeropool' "> zpETH</strong></h3>
       </div>
       <div class="main-buttons-container">
-        <button mat-raised-button class="main-btn" routerLink="/deposit">Deposit</button>
-        <button mat-raised-button class="main-btn" routerLink="/withdraw">Withdraw</button>
-        <button mat-raised-button class="main-btn" routerLink="/send">Send</button>
+        <button mat-raised-button class="button main-btn" routerLink="/deposit">Deposit</button>
+        <button mat-raised-button class="button main-btn" routerLink="/withdraw">Withdraw</button>
+        <button mat-raised-button class="button main-btn" routerLink="/send">Send</button>
       </div>
     </div>
     <hr class="unusualHr">
