@@ -1,6 +1,6 @@
 <div [@routeAnimations]="prepareRoute(outlet)" [ngClass]="{'extension-box-ether': shared.mode === 'ethereum', '': shared.mode === 'zeropool'}">
 <!--  <mat-progress-bar mode="indeterminate"></mat-progress-bar>-->
-  <div class="wrapper">
+  <div class="wrapper" [ngClass]="{'greyTheme': shared.mode === 'ethereum', 'whiteTheme': shared.mode === 'zeropool'}">
     <router-outlet #outlet="outlet"></router-outlet>
   </div>
 </div>

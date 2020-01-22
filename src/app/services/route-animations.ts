@@ -70,10 +70,10 @@ export function slideLeft() {
     ]),
     group([
       query(':leave', [
-        animate('300ms ease-in-out', style({ left: '100%'}))
+        animate('225ms cubic-bezier(0.0, 0.0, 0.2, 1)', style({ left: '100%'}))
       ], optional),
       query(':enter', [
-        animate('300ms ease-in-out', style({ left: '0%'}))
+        animate('225ms cubic-bezier(0.0, 0.0, 0.2, 1)', style({ left: '0%'}))
       ])
     ])
   ];
@@ -94,10 +94,10 @@ export function slideRight() {
     ]),
     group([
       query(':leave', [
-        animate('300ms ease-in-out', style({ right: '100%'}))
+        animate('225ms cubic-bezier(0.0, 0.0, 0.2, 1)', style({ right: '100%'}))
       ], optional),
       query(':enter', [
-        animate('300ms ease-in-out', style({ right: '0%'}))
+        animate('225ms cubic-bezier(0.0, 0.0, 0.2, 1)', style({ right: '0%'}))
       ])
     ])
   ];
