@@ -1,26 +1,24 @@
 <div (keydown)="onKeydown($event)" class="flex-wrapper">
+  <h2 class="title">Welcome back</h2>
+  <p class="text">Enter the password to unlock the account</p>
+  <form class="password-form">
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput
+             type="password"
+             [formControl]="passwordFormControl">
+      <mat-icon matSuffix>lock</mat-icon>
+      <mat-error
+        *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')">
+        Your password must be at least 8 characters long
+      </mat-error>
+      <mat-error *ngIf="passwordFormControl.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </form>
   <div>
-    <h2 class="title">Welcome back</h2>
-    <p class="text">Enter the password to unlock the account</p>
-    <form class="password-form">
-      <mat-form-field class="form-field" appearance="outline">
-        <mat-label>Password</mat-label>
-        <input matInput
-               type="password"
-               [formControl]="passwordFormControl">
-        <mat-icon matSuffix>lock</mat-icon>
-        <mat-error
-          *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')">
-          Your password must be at least 8 characters long
-        </mat-error>
-        <mat-error *ngIf="passwordFormControl.hasError('required')">
-          Password is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
-    </form>
-    <div>
-      <button mat-raised-button class="main-btn" routerLink="/welcome/new">New account</button>
-      <button mat-raised-button class="main-btn" (click)="tryUnlock(passwordFormControl.value)">Unlock</button>
-    </div>
+    <button mat-raised-button class="button main-btn" routerLink="/welcome/new">New account</button>
+    <button mat-raised-button class="button main-btn" (click)="tryUnlock(passwordFormControl.value)">Unlock</button>
   </div>
 </div>

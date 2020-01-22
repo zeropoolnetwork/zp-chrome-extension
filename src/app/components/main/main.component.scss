@@ -2,17 +2,6 @@ $black-main: rgba(0, 0, 0, 0.87);
 $black-more: rgba(0, 0, 0, 0.54);
 $black-hint: rgba(0, 0, 0, 0.38);
 
-.wrapper {
-  width: 360px;
-  height: 545px;
-}
-
-.main-content {
-  margin-top: 56px;
-  padding: 16px;
-  position: relative;
-}
-
 .account-info {
   text-align: center;
   margin: 0 auto;
@@ -74,11 +63,6 @@ $black-hint: rgba(0, 0, 0, 0.38);
 
 .main-buttons-container {
   margin-top: 2em
-}
-
-.main-btn {
-  width: 90px;
-  margin: 0 0.25em;
 }
 
 .transactions-history-header {

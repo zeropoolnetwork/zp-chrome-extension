@@ -23,8 +23,6 @@ export const animateFunc =
     transition('password => repeat', slideRight()),
     transition('repeat => password', slideLeft()),
     transition('repeat => main', fader()),
-    transition('main => menu', slideLeft()),
-    transition('menu => main', slideRight()),
     transition('main <=> deposit', fader()),
     transition('main <=> withdraw', fader()),
     transition('main <=>send', fader()),
@@ -39,6 +37,8 @@ export const animateFunc =
     transition('password => import', slideLeft()),
     transition('unlock <=> main', fader()),
     transition('unlock <=> new', fader()),
+    transition('main => menu', slideMenuLeft()),
+    transition('menu => main', slideMenuRight()),
   ]);
 
 export function fader() {
@@ -62,7 +62,7 @@ export function slideLeft() {
         position: 'absolute',
         left: 0,
         width: 360,
-        height: 590,
+        height: 600,
       })
     ], optional),
     query(':enter', [
@@ -86,7 +86,7 @@ export function slideRight() {
         position: 'absolute',
         right: 0,
         width: 360,
-        height: 590,
+        height: 600,
       })
     ], optional),
     query(':enter', [
@@ -103,3 +103,56 @@ export function slideRight() {
   ];
 }
 
+export function slideMenuLeft() {
+  return [
+    query(':enter', [
+      style({
+        position: 'absolute',
+        left: 0,
+        width: 360,
+        height: 600,
+        'z-index': 10
+    })
+    ], optional),
+    query(':enter', [
+      style({ left: '-100%'})
+    ]),
+    query(':leave', [
+      style({
+        position: 'absolute',
+        left: '0'
+      })
+    ]),
+    group([
+      query(':enter', [
+        animate('225ms cubic-bezier(0.0, 0.0, 0.2, 1)', style({ left: '0%'}))
+      ], optional)
+    ])
+  ];
+}
+
+export function slideMenuRight() {
+  return [
+    query(':leave', [
+      style({
+        position: 'absolute',
+        right: 0,
+        width: 360,
+        height: 600,
+        'z-index': 10
+      })
+    ], optional),
+    query(':enter', [
+      style({
+        position: 'absolute',
+        right: 0,
+        left: 0
+      })
+    ]),
+    group([
+      query(':leave', [
+        animate('195ms cubic-bezier(0.4, 0.0, 0.6, 1)', style({ right: '100%'}))
+      ], optional),
+    ])
+  ];
+}
