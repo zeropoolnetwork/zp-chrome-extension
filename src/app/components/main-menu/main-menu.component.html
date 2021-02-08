@@ -5,13 +5,13 @@
     <mat-icon class="button-icon">close</mat-icon>
   </button>
   <button mat-raised-button
-          class="text menu-item"
+          class="menu-item"
           routerLink="/password/decrypt"
           [ngClass]="{'text-white': shared.mode === 'ethereum', 'text-black': shared.mode === 'zeropool'}">
     Export mnemonic
   </button>
   <button mat-raised-button
-          class="text menu-item"
+          class="menu-item"
           routerLink="/delete"
           [ngClass]="{'text-white': shared.mode === 'ethereum', 'text-black': shared.mode === 'zeropool'}">
     Delete account
